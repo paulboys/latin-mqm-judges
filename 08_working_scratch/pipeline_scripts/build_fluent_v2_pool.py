@@ -549,7 +549,7 @@ def mark_diff(ref, stim):
 
 # ---------------------------------------------------------------- write
 OUT.mkdir(parents=True, exist_ok=True)
-(OUT / "candidate_pool.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8")
+(OUT / "candidate_pool.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8", newline="\n")
 
 errs = [r for r in rows if r["is_error_stimulus"]]
 negs = [r for r in rows if not r["is_error_stimulus"]]
@@ -623,5 +623,5 @@ for g in order:
                   f"**Rewrite (stimulus):** {r['stimulus_english']}", "",
                   f"**Why it should count as no error:** {r['rationale']}", "",
                   "`[ ] no error (keep as negative)` `[ ] is an error:` ______", ""]
-(OUT / "worksheet.md").write_text("\n".join(W), encoding="utf-8")
+(OUT / "worksheet.md").write_text("\n".join(W), encoding="utf-8", newline="\n")
 print(f"{len(rows)} items: {len(errs)} error candidates, {len(negs)} negatives; spans {sev}; types {typ}; groups {grp}")

@@ -475,9 +475,9 @@ rows.append(dict(pair_id="seed_p0033_s0002_opus__them_him", unit="seg_p0033_s000
 # ------------------------------------------------------------------ write
 OUT.mkdir(parents=True, exist_ok=True)
 (OUT / "runs").mkdir(exist_ok=True)
-(OUT / "candidate_pool.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8")
-(OUT / "runs/v3_input.jsonl").write_text("".join(json.dumps({"segment_id": r["item_id"], "latin_text": r["latin"], "final_english": r["stimulus_english"]}, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8")
-(OUT / "runs/v3_key_provisional.jsonl").write_text("".join(json.dumps({"segment_id": r["item_id"], "is_error_stimulus": r["is_error_stimulus"], "source": r["origin"], "expected": r["expected"]}, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8")
+(OUT / "candidate_pool.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8", newline="\n")
+(OUT / "runs/v3_input.jsonl").write_text("".join(json.dumps({"segment_id": r["item_id"], "latin_text": r["latin"], "final_english": r["stimulus_english"]}, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8", newline="\n")
+(OUT / "runs/v3_key_provisional.jsonl").write_text("".join(json.dumps({"segment_id": r["item_id"], "is_error_stimulus": r["is_error_stimulus"], "source": r["origin"], "expected": r["expected"]}, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8", newline="\n")
 
 errs = [r for r in rows if r["is_error_stimulus"]]
 n_real = len([r for r in errs if r["origin"] == "real-model-output"])
@@ -513,5 +513,5 @@ for r in rows:
         if r["contestable"]:
             W += ["", f"**Contestable:** {r['contestable']}"]
         W += ["", "`[ ] clean` `[ ] has an error:` ______", ""]
-(OUT / "worksheet.md").write_text("\n".join(W), encoding="utf-8")
+(OUT / "worksheet.md").write_text("\n".join(W), encoding="utf-8", newline="\n")
 print(f"{len(rows)} items: {len(errs)} errors, {len(rows) - len(errs)} negatives")
