@@ -1,0 +1,27 @@
+v1 (22 subtle items, v1 key)
+items with every signal: 22 (12 errors, 10 negatives)
+
+signal                          AUC         95% CI   pair-ranking (error worse than its own negative)
+opus mqm_penalty              0.742   0.533-0.917   4/8 (+2 ties)
+opus -score                   0.750   0.517-0.942   5/8 (+0 ties)
+gemini mqm_penalty            0.833   0.708-0.958   5/8 (+3 ties)
+gemini -score                 0.808   0.642-0.950   5/8 (+3 ties)
+jev p(has_error)              0.717   0.475-0.917   5/8 (+0 ties)
+jev -faithfulness             0.750   0.500-0.942   6/8 (+0 ties)
+
+paired bootstrap AUC differences (row minus column; 95% CI; * = CI excludes 0)
+  opus mqm_penalty           - opus -score                -0.008  [-0.150, +0.113]  
+  opus mqm_penalty           - gemini mqm_penalty         -0.092  [-0.250, +0.033]  
+  opus mqm_penalty           - gemini -score              -0.067  [-0.225, +0.067]  
+  opus mqm_penalty           - jev p(has_error)           +0.025  [-0.150, +0.200]  
+  opus mqm_penalty           - jev -faithfulness          -0.008  [-0.192, +0.167]  
+  opus -score                - gemini mqm_penalty         -0.083  [-0.208, +0.033]  
+  opus -score                - gemini -score              -0.058  [-0.192, +0.058]  
+  opus -score                - jev p(has_error)           +0.033  [-0.079, +0.167]  
+  opus -score                - jev -faithfulness          +0.000  [-0.121, +0.129]  
+  gemini mqm_penalty         - gemini -score              +0.025  [+0.000, +0.087]  
+  gemini mqm_penalty         - jev p(has_error)           +0.117  [-0.050, +0.292]  
+  gemini mqm_penalty         - jev -faithfulness          +0.083  [-0.075, +0.250]  
+  gemini -score              - jev p(has_error)           +0.092  [-0.071, +0.275]  
+  gemini -score              - jev -faithfulness          +0.058  [-0.108, +0.225]  
+  jev p(has_error)           - jev -faithfulness          -0.033  [-0.100, +0.000]  

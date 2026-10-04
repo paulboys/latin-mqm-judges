@@ -1,0 +1,695 @@
+"""Translation adapters for the Ussher pipeline.
+
+The primary adapter shells out to the Claude Code CLI (``claude -p``)
+rather than calling the Anthropic API directly. This keeps automation
+aligned with the CLI permission model already established in
+``.claude/settings.local.json`` and the existing
+``scripts/run_agent_loop.ps1`` invocation pattern.
+
+All external interactions are routed through an injectable
+``CommandRunner`` callable so unit tests can supply deterministic
+fakes (mirroring the ``request_fn`` seam used by the Gemini OCR
+adapter).
+"""
+
+from __future__ import annotations
+
+import json
+import re
+import subprocess
+from dataclasses import dataclass, field
+from typing import Any, Callable, Mapping, Sequence
+
+from provider_config import ProviderConfig
+
+
+# ---------------------------------------------------------------------------
+# Errors
+# ---------------------------------------------------------------------------
+
+
+class TranslationError(Exception):
+    """Base class for translation adapter errors."""
+
+    category: str = "unknown"
+
+
+class CLIUnavailableError(TranslationError):
+    category = "cli_not_found"
+
+
+class TranslationTimeoutError(TranslationError):
+    category = "timeout"
+
+
+class MalformedOutputError(TranslationError):
+    category = "malformed_json"
+
+
+class CLIExecutionError(TranslationError):
+    """The Claude CLI process itself failed (non-zero exit).
+
+    Distinct from MalformedOutputError: the model never produced output at
+    all. In practice this means usage/quota exhaustion, an auth lapse, or a
+    crashed CLI — conditions that will fail identically for EVERY subsequent
+    page, so batch runners should fail fast on repeats rather than hammer
+    retries against a dead provider. (A ch2 run mislabeled ten consecutive
+    usage-exhaustion exits as 'malformed_json' and kept going.)
+    """
+
+    category = "cli_failure"
+
+
+class TranslationPermissionError(TranslationError):
+    category = "permission_denied"
+
+
+# ---------------------------------------------------------------------------
+# Data shapes
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class CommandResult:
+    """Captured outcome of a single Claude CLI invocation."""
+
+    stdout: str
+    stderr: str = ""
+    returncode: int = 0
+
+
+@dataclass
+class TranslationUnit:
+    """One translated body line or footnote."""
+
+    unit_id: str
+    english: str
+    notes: str = ""
+    uncertain: bool = False
+
+
+@dataclass
+class TranslationResult:
+    """Structured outcome of a single translation request.
+
+    ``translations`` is keyed by ``line_id`` / ``footnote_id`` so the
+    runner can persist append-only history without ambiguity.
+    """
+
+    translations: dict[str, TranslationUnit]
+    raw_response: str
+    usage_tokens: dict[str, int] | None = None
+    errors: list[str] = field(default_factory=list)
+    prompt: str = ""
+
+
+# ---------------------------------------------------------------------------
+# Command runner seam
+# ---------------------------------------------------------------------------
+
+
+CommandRunner = Callable[[Sequence[str], str, float | None], CommandResult]
+
+
+def _default_command_runner(
+    argv: Sequence[str],
+    stdin_text: str,
+    timeout_seconds: float | None,
+) -> CommandResult:
+    """Default runner that invokes the Claude CLI via subprocess.
+
+    ``timeout_seconds=None`` disables the timeout entirely (the CLI
+    runs until it returns). This is the recommended setting for the
+    Claude Code CLI, which streams a long-running interactive session
+    and may legitimately take many minutes on large prompts.
+    """
+
+    try:
+        completed = subprocess.run(
+            list(argv),
+            input=stdin_text,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            timeout=timeout_seconds,
+            check=False,
+        )
+    except FileNotFoundError as exc:
+        raise CLIUnavailableError(
+            f"Claude CLI executable not found on PATH: {argv[0]!r}"
+        ) from exc
+    except subprocess.TimeoutExpired as exc:
+        raise TranslationTimeoutError(
+            f"Claude CLI timed out after {timeout_seconds}s"
+        ) from exc
+    return CommandResult(
+        stdout=completed.stdout or "",
+        stderr=completed.stderr or "",
+        returncode=completed.returncode,
+    )
+
+
+# ---------------------------------------------------------------------------
+# JSON extraction
+# ---------------------------------------------------------------------------
+
+
+_FENCE_RE = re.compile(r"^\s*```(?:json)?\s*(.*?)\s*```\s*$", re.DOTALL)
+
+
+def _strip_code_fence(text: str) -> str:
+    match = _FENCE_RE.match(text or "")
+    return match.group(1) if match else text
+
+
+def _extract_json_object(text: str) -> dict[str, Any]:
+    """Return the first balanced JSON object found in *text*.
+
+    Tolerates leading prose or a single fenced ```json block, but the
+    extracted object MUST parse as valid JSON or this raises
+    ``MalformedOutputError``.
+    """
+
+    candidate = _strip_code_fence(text or "").strip()
+    if not candidate:
+        raise MalformedOutputError("Claude CLI returned empty output")
+
+    # Fast path: whole payload is JSON.
+    try:
+        parsed = json.loads(candidate)
+        if isinstance(parsed, dict):
+            return parsed
+    except json.JSONDecodeError:
+        pass
+
+    # Scan for a balanced top-level object.
+    start = candidate.find("{")
+    while start != -1:
+        depth = 0
+        in_string = False
+        escape = False
+        for idx in range(start, len(candidate)):
+            ch = candidate[idx]
+            if in_string:
+                if escape:
+                    escape = False
+                elif ch == "\\":
+                    escape = True
+                elif ch == '"':
+                    in_string = False
+                continue
+            if ch == '"':
+                in_string = True
+            elif ch == "{":
+                depth += 1
+            elif ch == "}":
+                depth -= 1
+                if depth == 0:
+                    blob = candidate[start : idx + 1]
+                    try:
+                        parsed = json.loads(blob)
+                    except json.JSONDecodeError:
+                        break
+                    if isinstance(parsed, dict):
+                        return parsed
+                    break
+        start = candidate.find("{", start + 1)
+
+    raise MalformedOutputError(
+        "Claude CLI output did not contain a valid JSON object"
+    )
+
+
+def parse_translation_payload(
+    raw: str,
+    *,
+    expected_unit_ids: Sequence[str] = (),
+) -> tuple[dict[str, TranslationUnit], list[str]]:
+    """Parse the strict translation contract output.
+
+    Returns the keyed ``TranslationUnit`` map and a list of
+    non-fatal warnings (missing IDs, unexpected IDs).
+    """
+
+    payload = _extract_json_object(raw)
+    translations_raw = payload.get("translations")
+    if not isinstance(translations_raw, dict):
+        raise MalformedOutputError(
+            "JSON payload missing 'translations' object"
+        )
+
+    units: dict[str, TranslationUnit] = {}
+    warnings: list[str] = []
+
+    for unit_id, entry in translations_raw.items():
+        if not isinstance(entry, dict):
+            warnings.append(f"non-object entry for {unit_id!r}; skipped")
+            continue
+        english = entry.get("english")
+        if not isinstance(english, str):
+            warnings.append(f"missing or non-string 'english' for {unit_id!r}")
+            english = ""
+        notes = entry.get("notes", "")
+        if not isinstance(notes, str):
+            notes = ""
+        uncertain = bool(entry.get("uncertain", False))
+        units[str(unit_id)] = TranslationUnit(
+            unit_id=str(unit_id),
+            english=english,
+            notes=notes,
+            uncertain=uncertain,
+        )
+
+    if expected_unit_ids:
+        expected_set = set(expected_unit_ids)
+        returned_set = set(units.keys())
+        missing = sorted(expected_set - returned_set)
+        unexpected = sorted(returned_set - expected_set)
+        if missing:
+            warnings.append(
+                "missing translations for unit_ids: " + ", ".join(missing)
+            )
+        if unexpected:
+            warnings.append(
+                "unexpected unit_ids in response: " + ", ".join(unexpected)
+            )
+
+    return units, warnings
+
+
+# ---------------------------------------------------------------------------
+# Adapter
+# ---------------------------------------------------------------------------
+
+
+class AnthropicTranslationAdapter:
+    """Translation adapter backed by the Claude Code CLI.
+
+    The adapter sends a single prompt and parses the JSON response into
+    a :class:`TranslationResult`. It is deliberately stateless apart
+    from configuration: callers pass already-built prompts (see
+    :mod:`translation_prompts`).
+    """
+
+    def __init__(
+        self,
+        provider: ProviderConfig,
+        *,
+        command_runner: CommandRunner | None = None,
+        cli_path: str = "claude",
+        permission_mode: str = "dangerously-skip-permissions",
+    ) -> None:
+        if provider.name != "anthropic":
+            raise ValueError(
+                "AnthropicTranslationAdapter expects provider.name='anthropic', "
+                f"got {provider.name!r}"
+            )
+        if not provider.supports_translation:
+            raise ValueError(
+                "Provider is not configured for translation "
+                "(supports_translation=False)"
+            )
+        self.provider = provider
+        self._runner: CommandRunner = command_runner or _default_command_runner
+        self._cli_path = cli_path
+        self._permission_mode = permission_mode
+
+    # -- introspection -----------------------------------------------------
+
+    def is_ready(self) -> bool:
+        """The CLI handles its own authentication; readiness is taken
+        as ``provider.supports_translation`` plus a non-empty CLI path.
+        Live CLI presence is tested at call time via the runner.
+        """
+
+        return bool(self._cli_path) and self.provider.supports_translation
+
+    # -- core call ---------------------------------------------------------
+
+    def _build_argv(self, prompt: str) -> list[str]:
+        argv = [self._cli_path, "-p", prompt]
+        if self._permission_mode == "dangerously-skip-permissions":
+            argv.append("--dangerously-skip-permissions")
+        # Pin the model on every Claude Code CLI invocation when the
+        # provider config names one. Without this flag the CLI inherits
+        # whatever model the user's session defaults to, which makes
+        # run logs lie about which model produced the output. The 1M
+        # context window is built into each model id, so no separate
+        # flag is needed for it. Skip the local-only sentinels ("local",
+        # "") used by adapters whose CLI doesn't take a --model arg.
+        model = (self.provider.model or "").strip()
+        if model and model != "local":
+            argv.extend(["--model", model])
+        return argv
+
+    def translate_units(
+        self,
+        prompt: str,
+        *,
+        expected_unit_ids: Sequence[str] = (),
+    ) -> TranslationResult:
+        """Send *prompt* to Claude CLI and return parsed translations.
+
+        Retries up to ``provider.max_retries`` times on
+        ``MalformedOutputError`` only; permission and timeout errors
+        propagate immediately.
+        """
+
+        attempts = max(1, self.provider.max_retries + 1)
+        last_error: Exception | None = None
+        last_raw = ""
+
+        for _ in range(attempts):
+            argv = self._build_argv(prompt)
+            timeout_value: float | None
+            if self.provider.timeout_seconds is None or float(
+                self.provider.timeout_seconds
+            ) <= 0:
+                timeout_value = None
+            else:
+                timeout_value = float(self.provider.timeout_seconds)
+            result = self._runner(argv, "", timeout_value)
+            last_raw = result.stdout
+
+            if result.returncode != 0:
+                stderr = result.stderr or ""
+                lowered = stderr.lower()
+                if "permission" in lowered or "not allowed" in lowered:
+                    raise TranslationPermissionError(stderr.strip())
+                # Process failure (usage exhaustion / auth / crash) — retry
+                # within this call, but surface the true category so batch
+                # runners can fail fast when it repeats across pages.
+                last_error = CLIExecutionError(
+                    f"Claude CLI exited with code {result.returncode}: "
+                    f"{stderr.strip()[:200]}"
+                )
+                continue
+
+            try:
+                units, warnings = parse_translation_payload(
+                    result.stdout,
+                    expected_unit_ids=expected_unit_ids,
+                )
+            except MalformedOutputError as exc:
+                last_error = exc
+                continue
+
+            return TranslationResult(
+                translations=units,
+                raw_response=result.stdout,
+                usage_tokens=_extract_usage_tokens(result.stderr),
+                errors=warnings,
+                prompt=prompt,
+            )
+
+        assert last_error is not None
+        raise last_error
+
+    # -- single-line compatibility shim -----------------------------------
+
+    def complete_text(self, prompt: str) -> str:
+        """Send *prompt* to Claude CLI and return the raw stdout text.
+
+        Unlike :meth:`translate_units`, this performs no JSON parsing
+        and no retry: it is intended for short auxiliary prompts (e.g.
+        marker-placement post-processing) whose output is a single
+        free-form line. The caller is responsible for validating the
+        response and choosing a fallback.
+
+        Permission and timeout failures still raise the typed errors
+        used elsewhere; non-zero exits are surfaced as
+        :class:`MalformedOutputError` with the stderr summary.
+        """
+
+        argv = self._build_argv(prompt)
+        timeout_value: float | None
+        if self.provider.timeout_seconds is None or float(
+            self.provider.timeout_seconds
+        ) <= 0:
+            timeout_value = None
+        else:
+            timeout_value = float(self.provider.timeout_seconds)
+        result = self._runner(argv, "", timeout_value)
+        if result.returncode != 0:
+            stderr = result.stderr or ""
+            lowered = stderr.lower()
+            if "permission" in lowered or "not allowed" in lowered:
+                raise TranslationPermissionError(stderr.strip())
+            raise CLIExecutionError(
+                f"Claude CLI exited with code {result.returncode}: "
+                f"{stderr.strip()[:200]}"
+            )
+        return _strip_code_fence(result.stdout or "").strip()
+
+    # -- single-line compatibility shim (legacy) --------------------------
+
+    def translate_text(
+        self,
+        latin_text: str,
+        *,
+        unit_id: str = "unit_0",
+        prompt_builder: Callable[[str, str], str] | None = None,
+    ) -> str:
+        """Translate a single free-form Latin string to English.
+
+        Provided so legacy callers that just want plain text continue
+        to work; production runs should use ``translate_units`` with a
+        properly-built page prompt.
+        """
+
+        if prompt_builder is None:
+            prompt = (
+                "Translate the following 17th-century Latin into modern "
+                "English. Return JSON shaped exactly as "
+                '{"translations": {"' + unit_id + '": {"english": "...", '
+                '"notes": "", "uncertain": false}}} and nothing else.\n\n'
+                f"{unit_id}: {latin_text}\n"
+            )
+        else:
+            prompt = prompt_builder(unit_id, latin_text)
+
+        result = self.translate_units(prompt, expected_unit_ids=[unit_id])
+        unit = result.translations.get(unit_id)
+        if unit is None:
+            raise MalformedOutputError(
+                f"Translation result did not contain unit_id {unit_id!r}"
+            )
+        return unit.english
+
+
+# ---------------------------------------------------------------------------
+# Gemini translation adapter (direct REST API — cross-provider A/B)
+# ---------------------------------------------------------------------------
+
+
+class GeminiTranslationError(TranslationError):
+    """The Gemini generateContent call failed (HTTP error, empty, or blocked)."""
+
+    category = "gemini_failure"
+
+
+# (model, prompt, provider, temperature, thinking_budget) -> raw model text
+GeminiTextRequestFn = Callable[[str, str, ProviderConfig, float, "int | None"], str]
+
+
+# usageMetadata of the most recent default Gemini text request (prompt / candidates / thoughts /
+# total token counts). Kept out of the request function's return value so the request_fn seam and
+# its test fakes are unchanged; GeminiTranslationAdapter copies it to ``last_usage`` after a call.
+LAST_GEMINI_USAGE: dict[str, Any] | None = None
+
+
+def _default_gemini_text_request(
+    model: str,
+    prompt: str,
+    provider: ProviderConfig,
+    temperature: float,
+    thinking_budget: int | None,
+) -> str:
+    """Default text-only Gemini ``generateContent`` call; returns raw model text.
+
+    Mirrors the OCR adapter's Gemini call (``ocr_adapters._default_gemini_request``)
+    but sends a text-only prompt and, unlike the Claude CLI path, DOES set
+    ``temperature`` and a bounded ``thinkingBudget`` so the run is reproducible.
+    """
+    import urllib.error
+    import urllib.request
+
+    if not provider.api_key:
+        raise GeminiTranslationError("Gemini provider has no api_key configured")
+
+    url = (
+        f"{provider.base_url.rstrip('/')}/v1beta/models/{model}:generateContent"
+        f"?key={provider.api_key}"
+    )
+    generation_config: dict[str, Any] = {
+        "response_mime_type": "application/json",
+        "temperature": float(temperature),
+    }
+    if thinking_budget is not None and thinking_budget >= 0:
+        generation_config["thinkingConfig"] = {"thinkingBudget": int(thinking_budget)}
+    body = json.dumps(
+        {
+            "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+            "generationConfig": generation_config,
+        }
+    ).encode("utf-8")
+    request = urllib.request.Request(
+        url, data=body, headers={"Content-Type": "application/json"}, method="POST"
+    )
+    timeout = (
+        float(provider.timeout_seconds)
+        if provider.timeout_seconds and float(provider.timeout_seconds) > 0
+        else 300.0
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            raw = response.read().decode("utf-8")
+    except urllib.error.HTTPError as exc:
+        detail = exc.read().decode("utf-8", "replace")[:300] if hasattr(exc, "read") else ""
+        raise GeminiTranslationError(f"Gemini HTTP {exc.code}: {detail}") from exc
+    except urllib.error.URLError as exc:
+        raise GeminiTranslationError(f"Gemini request failed: {exc}") from exc
+
+    parsed = json.loads(raw)
+    global LAST_GEMINI_USAGE
+    LAST_GEMINI_USAGE = parsed.get("usageMetadata")
+    candidates = parsed.get("candidates", [])
+    if not candidates:
+        feedback = parsed.get("promptFeedback", {})
+        raise GeminiTranslationError(
+            f"Gemini response contained no candidates (promptFeedback={feedback})"
+        )
+    parts = candidates[0].get("content", {}).get("parts", [])
+    # Skip reasoning ("thought") parts; keep the answer text.
+    texts = [str(p["text"]) for p in parts if "text" in p and not p.get("thought")]
+    if not texts:
+        raise GeminiTranslationError("Gemini response had no answer text part")
+    return "".join(texts)
+
+
+class GeminiTranslationAdapter:
+    """Translation adapter backed by the Gemini ``generateContent`` REST API.
+
+    Interface-compatible with the part of :class:`AnthropicTranslationAdapter`
+    the sentence runner uses: it exposes ``complete_text(prompt) -> str``
+    returning the model's raw output (expected to be the JSON translation
+    contract). Unlike the Claude CLI path, temperature and thinking budget ARE
+    set here and recorded, so the cross-provider A/B is reproducible.
+    """
+
+    def __init__(
+        self,
+        provider: ProviderConfig,
+        *,
+        temperature: float = 0.2,
+        thinking_budget: int | None = 4096,
+        request_fn: GeminiTextRequestFn | None = None,
+    ) -> None:
+        if provider.name != "gemini":
+            raise ValueError(
+                "GeminiTranslationAdapter expects provider.name='gemini', "
+                f"got {provider.name!r}"
+            )
+        self.provider = provider
+        self.temperature = float(temperature)
+        self.thinking_budget = thinking_budget
+        self._request_fn = request_fn or _default_gemini_text_request
+
+    def is_ready(self) -> bool:
+        return bool(self.provider.api_key) and bool(self.provider.model)
+
+    def complete_text(self, prompt: str) -> str:
+        """Send *prompt* to Gemini and return the raw text output.
+
+        Retries up to ``provider.max_retries`` times on transient Gemini
+        failures; an empty response after all attempts raises
+        :class:`MalformedOutputError` (same contract as the Anthropic shim).
+        """
+        attempts = max(1, self.provider.max_retries + 1)
+        last_error: Exception | None = None
+        self.last_usage = None
+        self.last_attempts = 0
+        for _ in range(attempts):
+            self.last_attempts += 1
+            try:
+                raw = self._request_fn(
+                    self.provider.model,
+                    prompt,
+                    self.provider,
+                    self.temperature,
+                    self.thinking_budget,
+                )
+            except GeminiTranslationError as exc:
+                last_error = exc
+                continue
+            self.last_usage = LAST_GEMINI_USAGE
+            text = _strip_code_fence(raw or "").strip()
+            if text:
+                return text
+            last_error = MalformedOutputError("Gemini returned empty output")
+        assert last_error is not None
+        raise last_error
+
+    def translate_units(
+        self,
+        prompt: str,
+        *,
+        expected_unit_ids: Sequence[str] = (),
+    ) -> TranslationResult:
+        """Parity shim: parse the JSON translation contract from Gemini output."""
+        raw = self.complete_text(prompt)
+        units, warnings = parse_translation_payload(
+            raw, expected_unit_ids=expected_unit_ids
+        )
+        return TranslationResult(
+            translations=units,
+            raw_response=raw,
+            usage_tokens=None,
+            errors=warnings,
+            prompt=prompt,
+        )
+
+
+# ---------------------------------------------------------------------------
+# Optional usage extraction
+# ---------------------------------------------------------------------------
+
+
+_USAGE_RE = re.compile(
+    r"(input_tokens|output_tokens|total_tokens)\s*[=:]\s*(\d+)",
+    re.IGNORECASE,
+)
+
+
+def _extract_usage_tokens(stderr: str) -> dict[str, int] | None:
+    """Best-effort scan of CLI stderr for usage telemetry.
+
+    The Claude CLI's stderr format is not stable; if no recognized
+    fields are present this returns ``None`` so artifacts can record
+    an explicit nullable for future direct-API migration.
+    """
+
+    if not stderr:
+        return None
+    matches = _USAGE_RE.findall(stderr)
+    if not matches:
+        return None
+    return {key.lower(): int(value) for key, value in matches}
+
+
+__all__ = [
+    "AnthropicTranslationAdapter",
+    "GeminiTranslationAdapter",
+    "GeminiTranslationError",
+    "CLIUnavailableError",
+    "CommandResult",
+    "CommandRunner",
+    "MalformedOutputError",
+    "TranslationError",
+    "TranslationPermissionError",
+    "TranslationResult",
+    "TranslationTimeoutError",
+    "TranslationUnit",
+    "parse_translation_payload",
+]

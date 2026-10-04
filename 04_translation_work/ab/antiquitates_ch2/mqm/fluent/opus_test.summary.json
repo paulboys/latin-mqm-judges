@@ -1,0 +1,20 @@
+{
+  "label": "opus-test",
+  "judge_provider": "anthropic",
+  "judge_model": "claude-opus-4-8",
+  "segments_file": "04_translation_work\\ab\\antiquitates_ch2\\mqm\\fluent\\fluent_set_input.jsonl",
+  "units_scored": 2,
+  "mean_score_0_100": 73.0,
+  "total_issues": 2,
+  "mqm_penalty_per_100_src_tokens": 45.455,
+  "by_severity": {
+    "major": 2
+  },
+  "by_dimension": {
+    "Accuracy": 2
+  },
+  "classification_distribution": {
+    "4-unreliable": 1,
+    "9-excellent": 1
+  }
+}

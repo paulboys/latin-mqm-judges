@@ -1,0 +1,144 @@
+{"segment_id": "U-P-01", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "by his daughter Adela", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-P-01__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-02", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "three other pagan kings", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-P-02__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-03", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "Archangel Michael", "dimension": "Accuracy", "error_type": "Entity", "severity": "major"}]}
+{"segment_id": "U-P-03__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-04", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "as is well attested", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-P-04__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-05", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "Blessed Augustine", "dimension": "Accuracy", "error_type": "Entity", "severity": "major"}]}
+{"segment_id": "U-P-05__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-06", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "a Briton", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-P-06__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-07", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "this one is supereminent", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-P-07__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-08", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "the other eleven", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-P-08__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-09", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "Joseph ordered Philip", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-P-09__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-10", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "accepted this, and believed in Him", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-P-10__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-11", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "which was formerly called Glastonia", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "U-P-11__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-12", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "who baptized Jesus Christ", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-P-12__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-13", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "father of Kimbeline", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-P-13__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-14", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "though already freed from pagan errors", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-P-14__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-15", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "(missing) nor was he willing to depart from the traditions of his fathers", "dimension": "Accuracy", "error_type": "Omission", "severity": "minor"}]}
+{"segment_id": "U-P-15__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-16", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "which can no longer be seen", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-P-16__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-17", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "came after Merlin", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-P-17__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-18", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "Pope Gregory", "dimension": "Accuracy", "error_type": "Entity", "severity": "major"}]}
+{"segment_id": "U-P-18__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-19", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "under Domitian", "dimension": "Accuracy", "error_type": "Entity", "severity": "major"}]}
+{"segment_id": "U-P-19__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-20", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "64", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-P-20__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-21", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "Council of Constance", "dimension": "Accuracy", "error_type": "Entity", "severity": "major"}]}
+{"segment_id": "U-P-21__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-22", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "the universality, not the antiquity", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-P-22__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-23", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "by Vespasian", "dimension": "Accuracy", "error_type": "Entity", "severity": "major"}]}
+{"segment_id": "U-P-23__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-24", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "in many English annals he finds", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-P-24__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-25", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "long afterwards", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "U-P-25__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-26", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "(missing) either there, or", "dimension": "Accuracy", "error_type": "Omission", "severity": "minor"}]}
+{"segment_id": "U-P-26__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-P-27", "is_error_stimulus": true, "source": "U-P", "expected": [{"span": "in Wales", "dimension": "Accuracy", "error_type": "Entity", "severity": "minor"}]}
+{"segment_id": "U-P-27__ref", "is_error_stimulus": false, "source": "U-P", "expected": []}
+{"segment_id": "U-R-01", "is_error_stimulus": true, "source": "U-R", "expected": [{"span": "wells of knowledge", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}, {"span": "is to be drawn", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "U-R-01__ref", "is_error_stimulus": false, "source": "U-R", "expected": []}
+{"segment_id": "U-R-02", "is_error_stimulus": true, "source": "U-R", "expected": [{"span": "since", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}, {"span": "became", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "U-R-02__ref", "is_error_stimulus": false, "source": "U-R", "expected": []}
+{"segment_id": "U-R-03", "is_error_stimulus": true, "source": "U-R", "expected": [{"span": "at such a time", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-R-03__ref", "is_error_stimulus": false, "source": "U-R", "expected": []}
+{"segment_id": "U-R-04", "is_error_stimulus": true, "source": "U-R", "expected": [{"span": "by agreement", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}, {"span": "in his annals of the English", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-R-04__ref", "is_error_stimulus": false, "source": "U-R", "expected": []}
+{"segment_id": "U-R-05", "is_error_stimulus": true, "source": "U-R", "expected": [{"span": "discovered", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "U-R-05__ref", "is_error_stimulus": false, "source": "U-R", "expected": []}
+{"segment_id": "U-R-06", "is_error_stimulus": true, "source": "U-R", "expected": [{"span": "for vi days at the Calends of August", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "U-R-06__ref", "is_error_stimulus": false, "source": "U-R", "expected": []}
+{"segment_id": "U-R-07", "is_error_stimulus": true, "source": "U-R", "expected": [{"span": "nor was any credibility attached to it by Nicholas Sanders", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}, {"span": "neither he ever saw", "dimension": "Fluency", "error_type": "Grammar", "severity": "minor"}]}
+{"segment_id": "U-R-07__ref", "is_error_stimulus": false, "source": "U-R", "expected": []}
+{"segment_id": "U-R-08", "is_error_stimulus": true, "source": "U-R", "expected": [{"span": "probably", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}, {"span": "chalice", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "U-R-08__ref", "is_error_stimulus": false, "source": "U-R", "expected": []}
+{"segment_id": "U-R-09", "is_error_stimulus": true, "source": "U-R", "expected": [{"span": "confirming", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "U-R-09__ref", "is_error_stimulus": false, "source": "U-R", "expected": []}
+{"segment_id": "L-P-01", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "this rage of ours", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-01__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-02", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "has your unbridled audacity thrown itself", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "L-P-02__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-03", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "pleasures worthy of a learned man", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-03__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-04", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "great laughter", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-04__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-05", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "The previous Aurora", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "L-P-05__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-06", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "the moon", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-06__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-07", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "a new place", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "L-P-07__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-08", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "bribe the guards", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-08__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-09", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "set fire to the roofs of the city", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-09__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-10", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "(missing) or is not", "dimension": "Accuracy", "error_type": "Omission", "severity": "major"}]}
+{"segment_id": "L-P-10__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-11", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "horses", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "L-P-11__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-12", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "our need your own", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-12__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-13", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "'For Milo'", "dimension": "Accuracy", "error_type": "Entity", "severity": "major"}]}
+{"segment_id": "L-P-13__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-14", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "Terence", "dimension": "Accuracy", "error_type": "Entity", "severity": "major"}]}
+{"segment_id": "L-P-14__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-15", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "poverty alone can win", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-15__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-16", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "long thereafter", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "L-P-16__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-17", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "her own brothers", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-17__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-18", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "Jupiter", "dimension": "Accuracy", "error_type": "Entity", "severity": "major"}]}
+{"segment_id": "L-P-18__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-19", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "a young man", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-19__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-20", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "lose your father", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-20__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-21", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "if it is nourished", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-21__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-22", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "as we shall say below", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "L-P-22__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-23", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "above the gods", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-23__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-24", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "another five", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-24__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-25", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "invisible things", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-25__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-26", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "is known to have flown free", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "L-P-26__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-27", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "heightened", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-27__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-28", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "An aid", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-28__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-29", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "we rise beyond it", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-29__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "L-P-30", "is_error_stimulus": true, "source": "L-P", "expected": [{"span": "acquired by study", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "L-P-30__ref", "is_error_stimulus": false, "source": "L-P", "expected": []}
+{"segment_id": "U-V-01", "is_error_stimulus": false, "source": "U-V", "expected": []}
+{"segment_id": "U-V-02", "is_error_stimulus": false, "source": "U-V", "expected": []}
+{"segment_id": "U-V-03", "is_error_stimulus": false, "source": "U-V", "expected": []}
+{"segment_id": "U-V-04", "is_error_stimulus": false, "source": "U-V", "expected": []}
+{"segment_id": "U-V-05", "is_error_stimulus": false, "source": "U-V", "expected": []}
+{"segment_id": "U-V-06", "is_error_stimulus": false, "source": "U-V", "expected": []}
+{"segment_id": "L-V-01", "is_error_stimulus": false, "source": "L-V", "expected": []}
+{"segment_id": "L-V-02", "is_error_stimulus": false, "source": "L-V", "expected": []}
+{"segment_id": "L-V-03", "is_error_stimulus": false, "source": "L-V", "expected": []}
+{"segment_id": "L-V-04", "is_error_stimulus": false, "source": "L-V", "expected": []}
+{"segment_id": "L-V-05", "is_error_stimulus": false, "source": "L-V", "expected": []}
+{"segment_id": "L-V-06", "is_error_stimulus": false, "source": "L-V", "expected": []}

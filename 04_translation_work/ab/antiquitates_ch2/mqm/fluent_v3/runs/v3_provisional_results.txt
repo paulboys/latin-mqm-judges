@@ -1,0 +1,104 @@
+################ v3 PROVISIONAL (Claude's unadjudicated key) — Gemini vs JEV legacy vs JEV-MQM
+PROVISIONAL: 51 errors (17 real, 34 simulated), 56 negatives
+
+=== gemini   (missing: 0)
+  recall, all errors        42/51 (82%, 70-90)
+    real                    9/17 (53%, 31-74)
+    simulated               33/34 (97%, 85-99)
+    keyed major             28/30 (93%, 79-98)
+    keyed minor             14/21 (67%, 45-83)
+  typed recall (dimension)  40/51 (78%, 65-88)
+  FP, all negatives         7/56 (12%, 6-24)
+    paired correct renders  5/47 (11%, 5-23)
+    defensible (B-) items   2/6 (33%, 10-70)
+  pair accuracy             35/48 (73%, 59-83)
+
+=== jev_legacy   (missing: 0)
+  recall, all errors        24/51 (47%, 34-60)
+    real                    5/17 (29%, 13-53)
+    simulated               19/34 (56%, 39-71)
+    keyed major             18/30 (60%, 42-75)
+    keyed minor             6/21 (29%, 14-50)
+  FP, all negatives         3/56 (5%, 2-15)
+    paired correct renders  1/47 (2%, 0-11)
+    defensible (B-) items   2/6 (33%, 10-70)
+  pair accuracy             21/48 (44%, 31-58)
+
+=== mqmJEV_core   (missing: 0)
+  recall, all errors        26/51 (51%, 38-64)
+    real                    8/17 (47%, 26-69)
+    simulated               18/34 (53%, 37-69)
+    keyed major             16/30 (53%, 36-70)
+    keyed minor             10/21 (48%, 28-68)
+  typed recall (dimension)  23/51 (45%, 32-59)
+  FP, all negatives         7/56 (12%, 6-24)
+    paired correct renders  5/47 (11%, 5-23)
+    defensible (B-) items   2/6 (33%, 10-70)
+  pair accuracy             19/48 (40%, 27-54)
+
+=== mqmJEV_fine   (missing: 0)
+  recall, all errors        36/51 (71%, 57-81)
+    real                    9/17 (53%, 31-74)
+    simulated               27/34 (79%, 63-90)
+    keyed major             23/30 (77%, 59-88)
+    keyed minor             13/21 (62%, 41-79)
+  typed recall (dimension)  33/51 (65%, 51-76)
+  FP, all negatives         19/56 (34%, 23-47)
+    paired correct renders  15/47 (32%, 20-46)
+    defensible (B-) items   4/6 (67%, 30-90)
+  pair accuracy             22/48 (46%, 33-60)
+
+=== pairwise McNemar (recall on errors / FP on negatives)
+  recall gemini vs jev_legacy: gemini-only 19, jev_legacy-only 1, p=0.000
+  FP     gemini vs jev_legacy: gemini-only 6, jev_legacy-only 2, p=0.289
+  recall gemini vs mqmJEV_core: gemini-only 18, mqmJEV_core-only 2, p=0.000
+  FP     gemini vs mqmJEV_core: gemini-only 5, mqmJEV_core-only 5, p=1.000
+  recall gemini vs mqmJEV_fine: gemini-only 8, mqmJEV_fine-only 2, p=0.109
+  FP     gemini vs mqmJEV_fine: gemini-only 3, mqmJEV_fine-only 15, p=0.008
+  recall jev_legacy vs mqmJEV_core: jev_legacy-only 4, mqmJEV_core-only 6, p=0.754
+  FP     jev_legacy vs mqmJEV_core: jev_legacy-only 0, mqmJEV_core-only 4, p=0.125
+  recall jev_legacy vs mqmJEV_fine: jev_legacy-only 0, mqmJEV_fine-only 12, p=0.000
+  FP     jev_legacy vs mqmJEV_fine: jev_legacy-only 0, mqmJEV_fine-only 16, p=0.000
+  recall mqmJEV_core vs mqmJEV_fine: mqmJEV_core-only 1, mqmJEV_fine-only 11, p=0.006
+  FP     mqmJEV_core vs mqmJEV_fine: mqmJEV_core-only 1, mqmJEV_fine-only 13, p=0.002
+
+errors missed by every judge (6): H-02, H-08, H-12, H-13, S-14, V1-p0039_l0002_v2__in_to
+
+################ v3 AUC (continuous signals)
+
+items with every signal: 107 (51 errors, 56 negatives)
+
+signal                          AUC         95% CI   pair-ranking (error worse than its own negative)
+gemini mqm_penalty            0.886   0.821-0.942   40/48 (+8 ties)
+gemini -score                 0.894   0.832-0.947   40/48 (+8 ties)
+jev_legacy p(has_error)       0.821   0.736-0.895   42/48 (+2 ties)
+jev_legacy -faithfulness      0.827   0.746-0.898   41/48 (+0 ties)
+mqmJEV_core mqm_penalty       0.710   0.630-0.788   22/48 (+26 ties)
+mqmJEV_core -score            0.823   0.741-0.894   43/48 (+2 ties)
+
+paired bootstrap AUC differences (row minus column; 95% CI; * = CI excludes 0)
+  gemini mqm_penalty         - jev_legacy p(has_error)    +0.065  [-0.001, +0.139]  
+  gemini mqm_penalty         - mqmJEV_core mqm_penalty    +0.176  [+0.089, +0.261] *
+  gemini -score              - jev_legacy p(has_error)    +0.072  [+0.007, +0.146] *
+  jev_legacy p(has_error)    - mqmJEV_core mqm_penalty    +0.111  [+0.044, +0.180] *
+
+################ v3 JEV probability calibration (legacy has_error)
+=== v3 legacy — all: n=107 (51 errors, 56 negatives; base rate 0.48)
+  mean p(has_error): errors 0.494  vs  negatives 0.227
+  ROC AUC 0.821  (bootstrap 95% 0.739-0.895; 0.5 = chance)
+  Brier 0.190  vs base-rate forecaster 0.249  -> skill +0.237 (0 = no better than base rate)
+  reliability (p bin: n, mean p, observed error rate):
+    [0.0-0.1) n=  5  mean p=0.09  observed=0.20  #####
+    [0.1-0.2) n= 32  mean p=0.15  observed=0.19  ################################
+    [0.2-0.3) n= 25  mean p=0.25  observed=0.40  #########################
+    [0.3-0.4) n= 12  mean p=0.33  observed=0.67  ############
+    [0.4-0.5) n= 10  mean p=0.45  observed=0.60  ##########
+    [0.5-0.6) n=  9  mean p=0.53  observed=0.78  #########
+    [0.6-0.7) n=  4  mean p=0.64  observed=0.75  ####
+    [0.7-0.8) n=  2  mean p=0.78  observed=1.00  ##
+    [0.8-0.9) n=  5  mean p=0.83  observed=1.00  #####
+    [0.9-1.0) n=  6  mean p=0.95  observed=1.00  ######
+  ECE (expected calibration error) 0.142
+  at p>=0.5: recall 23/51, FP 3/56, accuracy 0.71
+  best threshold on this data 0.30 -> accuracy 0.77 (optimistic: tuned in-sample; majority-class accuracy 0.52)
+  faithfulness: mean on errors 3.06 vs negatives 3.61; AUC (lower faith = error) 0.827

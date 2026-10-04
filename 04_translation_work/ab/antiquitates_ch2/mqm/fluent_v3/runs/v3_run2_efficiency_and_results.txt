@@ -1,0 +1,44 @@
+################ EFFICIENCY (run 2, measured)
+judge               n  lat mean  median     p90  total s   in tok  out tok think tok total tok  retries
+gemini            107      5.27    5.14    7.80      564      895       74       420      1389        0
+jev_legacy        107      0.25    0.23    0.30       26      619       79         0       698        0
+jev_mqm           107      0.24    0.23    0.27       25     2848      542         0      3390        0
+
+Per-item means; 'total tok' = input + output + thinking. Gemini thinking tokens are billed as output by Google;
+JEV has no thinking tokens. Prices are not applied here.
+
+################ DISCRIMINATION, run 2 (provisional key)
+=== gemini   (missing: 0)
+  recall, all errors        41/51 (80%, 68-89)
+    real                    8/17 (47%, 26-69)
+    simulated               33/34 (97%, 85-99)
+  FP, all negatives         6/56 (11%, 5-21)
+  pair accuracy             35/48 (73%, 59-83)
+=== jev_legacy   (missing: 0)
+  recall, all errors        26/51 (51%, 38-64)
+    real                    6/17 (35%, 17-59)
+    simulated               20/34 (59%, 42-74)
+  FP, all negatives         5/56 (9%, 4-19)
+  pair accuracy             21/48 (44%, 31-58)
+=== mqmJEV_core   (missing: 0)
+  recall, all errors        24/51 (47%, 34-60)
+    real                    6/17 (35%, 17-59)
+    simulated               18/34 (53%, 37-69)
+  FP, all negatives         7/56 (12%, 6-24)
+  pair accuracy             18/48 (38%, 25-52)
+=== pairwise McNemar (recall on errors / FP on negatives)
+  recall gemini vs jev_legacy: gemini-only 16, jev_legacy-only 1, p=0.000
+  FP     gemini vs jev_legacy: gemini-only 4, jev_legacy-only 3, p=1.000
+  recall gemini vs mqmJEV_core: gemini-only 19, mqmJEV_core-only 2, p=0.000
+  FP     gemini vs mqmJEV_core: gemini-only 4, mqmJEV_core-only 5, p=1.000
+signal                          AUC         95% CI   pair-ranking (error worse than its own negative)
+gemini mqm_penalty            0.878   0.815-0.935   39/48 (+9 ties)
+gemini -score                 0.897   0.835-0.950   40/48 (+8 ties)
+jev_legacy p(has_error)       0.816   0.731-0.894   40/48 (+3 ties)
+jev_legacy -faithfulness      0.824   0.739-0.895   40/48 (+4 ties)
+mqmJEV_core mqm_penalty       0.689   0.608-0.770   20/48 (+27 ties)
+
+################ RUN-TO-RUN CONSISTENCY (run 1 vs run 2, same items)
+  gemini       flag agreement 103/107 (96%); flagged run1 49 vs run2 47; |Δscore| mean 0.8, max 15
+  jev_legacy   flag agreement 101/107 (94%); flagged run1 27 vs run2 31; |Δp| mean 0.022, max 0.21
+  mqmJEV_core  flag agreement 103/107 (96%); flagged run1 33 vs run2 31; |Δscore| mean 1.0, max 6

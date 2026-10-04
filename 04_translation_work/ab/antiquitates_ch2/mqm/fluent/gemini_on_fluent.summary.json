@@ -1,0 +1,27 @@
+{
+  "label": "gemini-on-fluent",
+  "judge_provider": "gemini",
+  "judge_model": "gemini-3.1-pro-preview",
+  "segments_file": "04_translation_work\\ab\\antiquitates_ch2\\mqm\\fluent\\fluent_set_input.jsonl",
+  "units_scored": 22,
+  "mean_score_0_100": 92.95,
+  "total_issues": 10,
+  "mqm_penalty_per_100_src_tokens": 8.929,
+  "by_severity": {
+    "major": 5,
+    "minor": 5
+  },
+  "by_dimension": {
+    "Accuracy": 6,
+    "Fluency": 3,
+    "Terminology": 1
+  },
+  "classification_distribution": {
+    "6-understandable but flawed": 1,
+    "10-perfect": 13,
+    "7-good": 2,
+    "9-excellent": 3,
+    "8-very good": 1,
+    "4-unreliable": 2
+  }
+}

@@ -1,0 +1,146 @@
+[1/144] U-P-01: has_error=0.48 sev=none faith=3.29
+[2/144] U-P-01__ref: has_error=0.16 sev=none faith=3.7
+[3/144] U-P-02: has_error=0.89 sev=critical faith=2.48
+[4/144] U-P-02__ref: has_error=0.22 sev=none faith=3.6
+[5/144] U-P-03: has_error=0.97 sev=critical faith=2.49
+[6/144] U-P-03__ref: has_error=0.14 sev=none faith=3.82
+[7/144] U-P-04: has_error=0.5 sev=minor faith=3.2
+[8/144] U-P-04__ref: has_error=0.27 sev=none faith=3.59
+[9/144] U-P-05: has_error=0.95 sev=critical faith=2.25
+[10/144] U-P-05__ref: has_error=0.1 sev=none faith=3.82
+[11/144] U-P-06: has_error=0.73 sev=major faith=2.9
+[12/144] U-P-06__ref: has_error=0.26 sev=none faith=3.54
+[13/144] U-P-07: has_error=0.62 sev=major faith=3.1
+[14/144] U-P-07__ref: has_error=0.36 sev=none faith=3.39
+[15/144] U-P-08: has_error=0.73 sev=critical faith=2.87
+[16/144] U-P-08__ref: has_error=0.39 sev=none faith=3.3
+[17/144] U-P-09: has_error=0.4 sev=none faith=3.36
+[18/144] U-P-09__ref: has_error=0.83 sev=critical faith=2.38
+[19/144] U-P-10: has_error=0.98 sev=critical faith=1.28
+[20/144] U-P-10__ref: has_error=0.14 sev=none faith=3.78
+[21/144] U-P-11: has_error=0.86 sev=critical faith=2.56
+[22/144] U-P-11__ref: has_error=0.28 sev=none faith=3.31
+[23/144] U-P-12: has_error=0.98 sev=critical faith=1.97
+[24/144] U-P-12__ref: has_error=0.25 sev=none faith=3.57
+[25/144] U-P-13: has_error=0.92 sev=critical faith=2.16
+[26/144] U-P-13__ref: has_error=0.11 sev=none faith=3.85
+[27/144] U-P-14: has_error=0.96 sev=critical faith=1.98
+[28/144] U-P-14__ref: has_error=0.23 sev=none faith=3.4
+[29/144] U-P-15: has_error=0.66 sev=minor faith=3.03
+[30/144] U-P-15__ref: has_error=0.11 sev=none faith=3.82
+[31/144] U-P-16: has_error=0.96 sev=critical faith=2.19
+[32/144] U-P-16__ref: has_error=0.23 sev=none faith=3.6
+[33/144] U-P-17: has_error=0.93 sev=critical faith=2.07
+[34/144] U-P-17__ref: has_error=0.14 sev=none faith=3.77
+[35/144] U-P-18: has_error=0.98 sev=critical faith=2.07
+[36/144] U-P-18__ref: has_error=0.13 sev=none faith=3.8
+[37/144] U-P-19: has_error=0.98 sev=critical faith=2.12
+[38/144] U-P-19__ref: has_error=0.25 sev=none faith=3.57
+[39/144] U-P-20: has_error=0.43 sev=none faith=3.33
+[40/144] U-P-20__ref: has_error=0.19 sev=none faith=3.72
+[41/144] U-P-21: has_error=0.93 sev=critical faith=2.42
+[42/144] U-P-21__ref: has_error=0.17 sev=none faith=3.72
+[43/144] U-P-22: has_error=0.9 sev=critical faith=2.19
+[44/144] U-P-22__ref: has_error=0.14 sev=none faith=3.73
+[45/144] U-P-23: has_error=0.88 sev=critical faith=2.36
+[46/144] U-P-23__ref: has_error=0.12 sev=none faith=3.76
+[47/144] U-P-24: has_error=0.98 sev=critical faith=1.28
+[48/144] U-P-24__ref: has_error=0.26 sev=none faith=3.47
+[49/144] U-P-25: has_error=0.89 sev=critical faith=1.96
+[50/144] U-P-25__ref: has_error=0.74 sev=major faith=2.5
+[51/144] U-P-26: has_error=0.55 sev=major faith=2.73
+[52/144] U-P-26__ref: has_error=0.52 sev=minor faith=3.02
+[53/144] U-P-27: has_error=0.89 sev=critical faith=2.15
+[54/144] U-P-27__ref: has_error=0.56 sev=major faith=3.01
+[55/144] U-R-01: has_error=0.64 sev=major faith=2.83
+[56/144] U-R-01__ref: has_error=0.43 sev=minor faith=3.23
+[57/144] U-R-02: has_error=0.63 sev=major faith=2.87
+[58/144] U-R-02__ref: has_error=0.33 sev=none faith=3.47
+[59/144] U-R-03: has_error=0.3 sev=none faith=3.4
+[60/144] U-R-03__ref: has_error=0.14 sev=none faith=3.71
+[61/144] U-R-04: has_error=0.51 sev=major faith=3.22
+[62/144] U-R-04__ref: has_error=0.23 sev=none faith=3.68
+[63/144] U-R-05: has_error=0.47 sev=minor faith=3.16
+[64/144] U-R-05__ref: has_error=0.21 sev=none faith=3.63
+[65/144] U-R-06: has_error=0.77 sev=critical faith=2.7
+[66/144] U-R-06__ref: has_error=0.56 sev=major faith=3.07
+[67/144] U-R-07: has_error=0.72 sev=major faith=2.45
+[68/144] U-R-07__ref: has_error=0.19 sev=none faith=3.49
+[69/144] U-R-08: has_error=0.77 sev=major faith=2.61
+[70/144] U-R-08__ref: has_error=0.29 sev=none faith=3.57
+[71/144] U-R-09: has_error=0.45 sev=major faith=2.99
+[72/144] U-R-09__ref: has_error=0.28 sev=none faith=3.31
+[73/144] L-P-01: has_error=0.66 sev=major faith=3.03
+[74/144] L-P-01__ref: has_error=0.24 sev=none faith=3.64
+[75/144] L-P-02: has_error=0.43 sev=none faith=3.23
+[76/144] L-P-02__ref: has_error=0.4 sev=none faith=3.33
+[77/144] L-P-03: has_error=0.85 sev=major faith=2.35
+[78/144] L-P-03__ref: has_error=0.72 sev=major faith=2.64
+[79/144] L-P-04: has_error=0.55 sev=major faith=3.08
+[80/144] L-P-04__ref: has_error=0.65 sev=major faith=2.79
+[81/144] L-P-05: has_error=0.83 sev=critical faith=2.48
+[82/144] L-P-05__ref: has_error=0.5 sev=minor faith=3.1
+[83/144] L-P-06: has_error=0.51 sev=none faith=3.25
+[84/144] L-P-06__ref: has_error=0.25 sev=none faith=3.49
+[85/144] L-P-07: has_error=0.97 sev=critical faith=1.79
+[86/144] L-P-07__ref: has_error=0.23 sev=none faith=3.72
+[87/144] L-P-08: has_error=0.86 sev=major faith=2.35
+[88/144] L-P-08__ref: has_error=0.23 sev=none faith=3.57
+[89/144] L-P-09: has_error=0.91 sev=critical faith=1.96
+[90/144] L-P-09__ref: has_error=0.53 sev=minor faith=3.22
+[91/144] L-P-10: has_error=0.92 sev=critical faith=2.11
+[92/144] L-P-10__ref: has_error=0.39 sev=none faith=3.22
+[93/144] L-P-11: has_error=0.62 sev=major faith=2.79
+[94/144] L-P-11__ref: has_error=0.26 sev=none faith=3.45
+[95/144] L-P-12: has_error=0.62 sev=critical faith=2.62
+[96/144] L-P-12__ref: has_error=0.23 sev=none faith=3.58
+[97/144] L-P-13: has_error=0.95 sev=critical faith=2.03
+[98/144] L-P-13__ref: has_error=0.23 sev=none faith=3.55
+[99/144] L-P-14: has_error=0.98 sev=critical faith=2.13
+[100/144] L-P-14__ref: has_error=0.18 sev=none faith=3.68
+[101/144] L-P-15: has_error=0.5 sev=major faith=2.92
+[102/144] L-P-15__ref: has_error=0.57 sev=major faith=2.74
+[103/144] L-P-16: has_error=0.91 sev=major faith=2.23
+[104/144] L-P-16__ref: has_error=0.17 sev=none faith=3.71
+[105/144] L-P-17: has_error=0.98 sev=critical faith=1.91
+[106/144] L-P-17__ref: has_error=0.34 sev=none faith=3.29
+[107/144] L-P-18: has_error=0.79 sev=critical faith=2.73
+[108/144] L-P-18__ref: has_error=0.52 sev=none faith=3.22
+[109/144] L-P-19: has_error=0.78 sev=major faith=2.57
+[110/144] L-P-19__ref: has_error=0.38 sev=none faith=3.29
+[111/144] L-P-20: has_error=0.84 sev=major faith=2.41
+[112/144] L-P-20__ref: has_error=0.54 sev=major faith=3.18
+[113/144] L-P-21: has_error=0.63 sev=critical faith=2.79
+[114/144] L-P-21__ref: has_error=0.45 sev=none faith=3.17
+[115/144] L-P-22: has_error=0.4 sev=none faith=3.34
+[116/144] L-P-22__ref: has_error=0.1 sev=none faith=3.76
+[117/144] L-P-23: has_error=0.88 sev=critical faith=1.9
+[118/144] L-P-23__ref: has_error=0.42 sev=none faith=3.22
+[119/144] L-P-24: has_error=0.97 sev=critical faith=2.18
+[120/144] L-P-24__ref: has_error=0.22 sev=none faith=3.56
+[121/144] L-P-25: has_error=0.92 sev=critical faith=1.89
+[122/144] L-P-25__ref: has_error=0.73 sev=major faith=2.73
+[123/144] L-P-26: has_error=0.57 sev=minor faith=3.14
+[124/144] L-P-26__ref: has_error=None sev=None faith=None ERR
+[125/144] L-P-27: has_error=None sev=None faith=None ERR
+[126/144] L-P-27__ref: has_error=None sev=None faith=None ERR
+[127/144] L-P-28: has_error=None sev=None faith=None ERR
+[128/144] L-P-28__ref: has_error=None sev=None faith=None ERR
+[129/144] L-P-29: has_error=None sev=None faith=None ERR
+[130/144] L-P-29__ref: has_error=None sev=None faith=None ERR
+[131/144] L-P-30: has_error=None sev=None faith=None ERR
+[132/144] L-P-30__ref: has_error=None sev=None faith=None ERR
+[133/144] U-V-01: has_error=None sev=None faith=None ERR
+[134/144] U-V-02: has_error=None sev=None faith=None ERR
+[135/144] U-V-03: has_error=None sev=None faith=None ERR
+[136/144] U-V-04: has_error=None sev=None faith=None ERR
+[137/144] U-V-05: has_error=None sev=None faith=None ERR
+[138/144] U-V-06: has_error=None sev=None faith=None ERR
+[139/144] L-V-01: has_error=None sev=None faith=None ERR
+[140/144] L-V-02: has_error=None sev=None faith=None ERR
+[141/144] L-V-03: has_error=None sev=None faith=None ERR
+[142/144] L-V-04: has_error=None sev=None faith=None ERR
+[143/144] L-V-05: has_error=None sev=None faith=None ERR
+[144/144] L-V-06: has_error=None sev=None faith=None ERR
+
+wrote 144 records to ..\..\04_translation_work\ab\antiquitates_ch2\mqm\fluent_v2\runs\jev_on_v2.jsonl

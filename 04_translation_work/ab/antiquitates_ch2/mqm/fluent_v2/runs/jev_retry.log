@@ -1,0 +1,23 @@
+[1/21] L-P-26__ref: has_error=0.3 sev=none faith=3.52
+[2/21] L-P-27: has_error=0.97 sev=critical faith=1.4
+[3/21] L-P-27__ref: has_error=0.61 sev=major faith=2.95
+[4/21] L-P-28: has_error=0.95 sev=critical faith=1.44
+[5/21] L-P-28__ref: has_error=0.39 sev=minor faith=3.15
+[6/21] L-P-29: has_error=0.9 sev=critical faith=2.28
+[7/21] L-P-29__ref: has_error=0.49 sev=major faith=2.86
+[8/21] L-P-30: has_error=0.93 sev=critical faith=1.86
+[9/21] L-P-30__ref: has_error=0.36 sev=none faith=3.39
+[10/21] U-V-01: has_error=0.27 sev=none faith=3.5
+[11/21] U-V-02: has_error=0.18 sev=none faith=3.69
+[12/21] U-V-03: has_error=0.09 sev=none faith=3.88
+[13/21] U-V-04: has_error=0.1 sev=none faith=3.87
+[14/21] U-V-05: has_error=0.1 sev=none faith=3.88
+[15/21] U-V-06: has_error=0.09 sev=none faith=3.88
+[16/21] L-V-01: has_error=0.15 sev=none faith=3.82
+[17/21] L-V-02: has_error=0.53 sev=none faith=3.32
+[18/21] L-V-03: has_error=0.13 sev=none faith=3.86
+[19/21] L-V-04: has_error=0.1 sev=none faith=3.84
+[20/21] L-V-05: has_error=0.25 sev=none faith=3.66
+[21/21] L-V-06: has_error=0.18 sev=none faith=3.76
+
+wrote 21 records to ..\..\04_translation_work\ab\antiquitates_ch2\mqm\fluent_v2\runs\jev_retry_out.jsonl

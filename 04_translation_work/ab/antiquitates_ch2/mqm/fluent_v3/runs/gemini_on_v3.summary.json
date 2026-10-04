@@ -1,0 +1,29 @@
+{
+  "label": "gemini-on-v3",
+  "judge_provider": "gemini",
+  "judge_model": "gemini-3.1-pro-preview",
+  "segments_file": "..\\..\\04_translation_work\\ab\\antiquitates_ch2\\mqm\\fluent_v3\\runs\\v3_input.jsonl",
+  "units_scored": 107,
+  "mean_score_0_100": 90.91,
+  "total_issues": 58,
+  "mqm_penalty_per_100_src_tokens": 14.023,
+  "by_severity": {
+    "major": 34,
+    "minor": 20,
+    "critical": 4
+  },
+  "by_dimension": {
+    "Accuracy": 51,
+    "Style": 3,
+    "Terminology": 2,
+    "Fluency": 2
+  },
+  "classification_distribution": {
+    "8-very good": 4,
+    "10-perfect": 56,
+    "9-excellent": 14,
+    "6-understandable but flawed": 9,
+    "7-good": 16,
+    "4-unreliable": 8
+  }
+}

@@ -1,0 +1,76 @@
+################ v1 — all three judges as MQM issue lists
+KEY: 22 stimuli = 12 errors + 10 hard negatives
+
+judge        det.recall  typed.recall   FP rate   n/a
+------------------------------------------------------
+opus               8/12          8/12      4/10     0
+gemini             8/12          7/12      0/10     0
+mqmJEV_core         7/12          6/12      3/10     0
+mqmJEV_fine         8/12          5/12      3/10     0
+
+
+signal                          AUC         95% CI   pair-ranking (error worse than its own negative)
+opus mqm_penalty              0.742   0.533-0.917   4/8 (+2 ties)
+opus -score                   0.750   0.517-0.942   5/8 (+0 ties)
+gemini mqm_penalty            0.833   0.708-0.958   5/8 (+3 ties)
+gemini -score                 0.808   0.642-0.950   5/8 (+3 ties)
+mqmJEV_core mqm_penalty       0.675   0.458-0.854   4/8 (+3 ties)
+mqmJEV_core -score            0.750   0.508-0.933   5/8 (+0 ties)
+mqmJEV_fine mqm_penalty       0.742   0.533-0.908   6/8 (+1 ties)
+mqmJEV_fine -score            0.750   0.508-0.933   5/8 (+0 ties)
+  opus mqm_penalty           - gemini mqm_penalty         -0.092  [-0.250, +0.033]  
+  opus mqm_penalty           - mqmJEV_core mqm_penalty    +0.067  [-0.117, +0.254]  
+  gemini mqm_penalty         - mqmJEV_core mqm_penalty    +0.158  [+0.033, +0.329] *
+################ v2 — all three judges as MQM issue lists
+KEY: 144 stimuli = 66 errors + 78 hard negatives
+
+judge        det.recall  typed.recall   FP rate   n/a
+------------------------------------------------------
+opus              66/66         66/66     51/78     0
+gemini            66/66         66/66     24/78     0
+mqmJEV_core        58/66         57/66     22/78     0
+mqmJEV_fine        62/66         61/66     30/78     0
+
+
+signal                          AUC         95% CI   pair-ranking (error worse than its own negative)
+opus mqm_penalty              0.998   0.992-1.000   65/66 (+1 ties)
+opus -score                   1.000   0.999-1.000   66/66 (+0 ties)
+gemini mqm_penalty            0.987   0.971-0.999   64/66 (+1 ties)
+gemini -score                 0.981   0.960-0.997   65/66 (+1 ties)
+mqmJEV_core mqm_penalty       0.889   0.830-0.940   56/66 (+7 ties)
+mqmJEV_core -score            0.940   0.901-0.970   63/66 (+0 ties)
+mqmJEV_fine mqm_penalty       0.903   0.849-0.948   59/66 (+5 ties)
+mqmJEV_fine -score            0.940   0.901-0.970   63/66 (+0 ties)
+  opus mqm_penalty           - gemini mqm_penalty         +0.010  [-0.002, +0.027]  
+  opus mqm_penalty           - mqmJEV_core mqm_penalty    +0.109  [+0.057, +0.168] *
+  gemini mqm_penalty         - mqmJEV_core mqm_penalty    +0.099  [+0.047, +0.157] *
+################ v2 detail (provisional key)
+=== opus   (missing/errored: 0)
+  recall (all errors)   66/66 (100%, 94-100)
+  FP rate (all negs)    51/78 (65%, 54-75)
+    FP U-V               2/6 (33%, 10-70)
+    FP L-V               1/6 (17%, 3-56)
+  pair accuracy (flags error, passes its negative)  18/66 (27%, 18-39)
+=== gemini   (missing/errored: 0)
+  recall (all errors)   66/66 (100%, 94-100)
+  FP rate (all negs)    24/78 (31%, 22-42)
+    FP U-V               0/6 (0%, 0-39)
+    FP L-V               0/6 (0%, 0-39)
+  pair accuracy (flags error, passes its negative)  42/66 (64%, 52-74)
+=== mqmJEV_core   (missing/errored: 0)
+  recall (all errors)   58/66 (88%, 78-94)
+  FP rate (all negs)    22/78 (28%, 19-39)
+    FP U-V               0/6 (0%, 0-39)
+    FP L-V               2/6 (33%, 10-70)
+  pair accuracy (flags error, passes its negative)  41/66 (62%, 50-73)
+=== pairwise recall difference (McNemar exact, error items both judged)
+  opus vs mqmJEV_core: opus-only 8, mqmJEV_core-only 0, p=0.008  (n=66)
+  gemini vs mqmJEV_core: gemini-only 8, mqmJEV_core-only 0, p=0.008  (n=66)
+=== pairwise FP difference (McNemar exact, negatives both judged)
+  opus vs mqmJEV_core: opus-only 33, mqmJEV_core-only 4, p=0.000  (n=78)
+  gemini vs mqmJEV_core: gemini-only 15, mqmJEV_core-only 13, p=0.851  (n=78)
+=== error items missed by every judge (0): 
+=== negatives flagged by every judge (9): U-P-26__ref, U-R-06__ref, L-P-02__ref, L-P-03__ref, L-P-04__ref, L-P-09__ref, L-P-15__ref, L-P-25__ref, L-P-27__ref
+opus_on_v2.jsonl issue severities: {'major': 53, 'critical': 21, 'minor': 100} | dims: {'Accuracy': 145, 'Terminology': 7, 'Style': 17, 'Fluency': 5}
+gemini_on_v2.jsonl issue severities: {'major': 57, 'critical': 11, 'minor': 48} | dims: {'Accuracy': 99, 'Fluency': 8, 'Style': 9}
+jevmqm_core_on_v2.jsonl issue severities: {'major': 134, 'minor': 35, 'critical': 55} | dims: {'Accuracy': 178, 'Terminology': 15, 'Fluency': 31}

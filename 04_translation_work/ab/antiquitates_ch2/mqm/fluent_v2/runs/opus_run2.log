@@ -1,0 +1,105 @@
+resuming: 70 units already judged in ..\..\04_translation_work\ab\antiquitates_ch2\mqm\fluent_v2\runs\opus_on_v2.jsonl
+[71/144] U-R-09: score=70.0 class=6-understandab issues=2
+[72/144] U-R-09__ref: score=88.0 class=8-very good issues=2
+[73/144] L-P-01: score=62.0 class=4-unreliable issues=2
+[74/144] L-P-01__ref: score=95.0 class=9-excellent issues=0
+[75/144] L-P-02: score=62.0 class=4-unreliable issues=2
+[76/144] L-P-02__ref: score=88.0 class=8-very good issues=1
+[77/144] L-P-03: score=70.0 class=4-unreliable issues=1
+[78/144] L-P-03__ref: score=85.0 class=8-very good issues=1
+[79/144] L-P-04: score=55.0 class=4-unreliable issues=1
+[80/144] L-P-04__ref: score=87.0 class=8-very good issues=1
+[81/144] L-P-05: score=58.0 class=4-unreliable issues=2
+[82/144] L-P-05__ref: score=82.0 class=8-very good issues=1
+[83/144] L-P-06: score=55.0 class=4-unreliable issues=2
+[84/144] L-P-06__ref: score=90.0 class=8-very good issues=1
+[85/144] L-P-07: score=55.0 class=4-unreliable issues=1
+[86/144] L-P-07__ref: score=95.0 class=9-excellent issues=0
+[87/144] L-P-08: score=62.0 class=4-unreliable issues=2
+[88/144] L-P-08__ref: score=91.0 class=8-very good issues=0
+[89/144] L-P-09: score=40.0 class=4-unreliable issues=2
+[90/144] L-P-09__ref: score=82.0 class=7-good issues=1
+[91/144] L-P-10: score=45.0 class=4-unreliable issues=3
+[92/144] L-P-10__ref: score=84.0 class=8-very good issues=1
+[93/144] L-P-11: score=68.0 class=6-understandab issues=1
+[94/144] L-P-11__ref: score=87.0 class=8-very good issues=0
+[95/144] L-P-12: score=45.0 class=4-unreliable issues=1
+[96/144] L-P-12__ref: score=85.0 class=8-very good issues=1
+[97/144] L-P-13: score=45.0 class=4-unreliable issues=2
+[98/144] L-P-13__ref: score=91.0 class=9-excellent issues=0
+[99/144] L-P-14: score=35.0 class=4-unreliable issues=1
+[100/144] L-P-14__ref: score=88.0 class=8-very good issues=1
+[101/144] L-P-15: score=48.0 class=4-unreliable issues=2
+[102/144] L-P-15__ref: score=86.0 class=8-very good issues=1
+[103/144] L-P-16: score=72.0 class=6-understandab issues=3
+[104/144] L-P-16__ref: score=83.0 class=7-good issues=2
+[105/144] L-P-17: score=55.0 class=4-unreliable issues=1
+[106/144] L-P-17__ref: score=96.0 class=9-excellent issues=0
+[107/144] L-P-18: score=55.0 class=4-unreliable issues=1
+[108/144] L-P-18__ref: score=90.0 class=9-excellent issues=1
+[109/144] L-P-19: score=55.0 class=4-unreliable issues=1
+[110/144] L-P-19__ref: score=85.0 class=8-very good issues=1
+[111/144] L-P-20: score=72.0 class=4-unreliable issues=1
+[112/144] L-P-20__ref: score=88.0 class=8-very good issues=1
+[113/144] L-P-21: score=30.0 class=4-unreliable issues=1
+[114/144] L-P-21__ref: score=89.0 class=8-very good issues=1
+[115/144] L-P-22: score=65.0 class=4-unreliable issues=1
+[116/144] L-P-22__ref: score=93.0 class=9-excellent issues=1
+[117/144] L-P-23: score=68.0 class=4-unreliable issues=1
+[118/144] L-P-23__ref: score=87.0 class=8-very good issues=1
+[119/144] L-P-24: score=55.0 class=4-unreliable issues=2
+[120/144] L-P-24__ref: score=90.0 class=9-excellent issues=1
+[121/144] L-P-25: score=58.0 class=4-unreliable issues=2
+[122/144] L-P-25__ref: score=90.0 class=8-very good issues=1
+[123/144] L-P-26: score=80.0 class=7-good issues=3
+[124/144] L-P-26__ref: score=88.0 class=8-very good issues=2
+[125/144] L-P-27: score=45.0 class=4-unreliable issues=3
+[126/144] L-P-27__ref: score=83.0 class=8-very good issues=2
+[127/144] L-P-28: score=55.0 class=4-unreliable issues=2
+[128/144] L-P-28__ref: score=88.0 class=8-very good issues=1
+[129/144] L-P-29: score=55.0 class=4-unreliable issues=2
+[130/144] L-P-29__ref: score=88.0 class=8-very good issues=1
+[131/144] L-P-30: score=38.0 class=4-unreliable issues=1
+[132/144] L-P-30__ref: score=88.0 class=8-very good issues=1
+[133/144] U-V-01: score=89.0 class=8-very good issues=2
+[134/144] U-V-02: score=92.0 class=9-excellent issues=0
+[135/144] U-V-03: score=93.0 class=9-excellent issues=0
+[136/144] U-V-04: score=95.0 class=9-excellent issues=0
+[137/144] U-V-05: score=91.0 class=9-excellent issues=1
+[138/144] U-V-06: score=96.0 class=9-excellent issues=0
+[139/144] L-V-01: score=93.0 class=9-excellent issues=1
+[140/144] L-V-02: score=96.0 class=9-excellent issues=0
+[141/144] L-V-03: score=95.0 class=9-excellent issues=0
+[142/144] L-V-04: score=93.0 class=9-excellent issues=0
+[143/144] L-V-05: score=92.0 class=9-excellent issues=0
+[144/144] L-V-06: score=91.0 class=9-excellent issues=0
+
+{
+  "label": "opus-on-v2",
+  "judge_provider": "anthropic",
+  "judge_model": "claude-opus-4-8",
+  "segments_file": "..\\..\\04_translation_work\\ab\\antiquitates_ch2\\mqm\\fluent_v2\\runs\\v2_input.jsonl",
+  "units_scored": 144,
+  "mean_score_0_100": 75.35,
+  "total_issues": 174,
+  "mqm_penalty_per_100_src_tokens": 38.362,
+  "by_severity": {
+    "major": 53,
+    "critical": 21,
+    "minor": 100
+  },
+  "by_dimension": {
+    "Accuracy": 145,
+    "Terminology": 7,
+    "Style": 17,
+    "Fluency": 5
+  },
+  "classification_distribution": {
+    "4-unreliable": 54,
+    "9-excellent": 32,
+    "8-very good": 42,
+    "6-understandable but flawed": 9,
+    "2-severe distortion": 2,
+    "7-good": 5
+  }
+}

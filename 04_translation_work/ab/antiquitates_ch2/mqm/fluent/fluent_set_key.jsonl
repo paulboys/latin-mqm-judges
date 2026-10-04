@@ -1,0 +1,22 @@
+{"segment_id": "seed_p0033_s0002_opus__them_him", "is_error_stimulus": true, "source": "seed:paul+claude", "expected": [{"dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major", "span": "them from him"}]}
+{"segment_id": "seed_p0033_s0001_opus__sonant", "is_error_stimulus": false, "source": "seed:paul+claude", "expected": []}
+{"segment_id": "seed_p0043_s0009_opus__illo_pudens", "is_error_stimulus": true, "source": "seed:paul+claude", "expected": [{"dimension": "Accuracy", "error_type": "Entity", "severity": "major", "span": "as Pudens"}]}
+{"segment_id": "seed_p0043_s0009_gemini__cum_when", "is_error_stimulus": true, "source": "seed:paul+claude", "expected": [{"dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor", "span": "when he (Plutarch) makes mention"}]}
+{"segment_id": "seed_p0039_l0002_v2__in_to", "is_error_stimulus": true, "source": "seed:classicist", "expected": [{"dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor", "span": "in the western regions"}]}
+{"segment_id": "seed_p0039_l0002_v0__to_western", "is_error_stimulus": false, "source": "seed:classicist", "expected": []}
+{"segment_id": "seed_litera_0055_studium", "is_error_stimulus": true, "source": "misgloss", "expected": [{"dimension": "Terminology", "error_type": "Wrong-term", "severity": "major", "span": "study of any subject"}]}
+{"segment_id": "seed_litera_0055_studium__gold", "is_error_stimulus": false, "source": "misgloss_gold", "expected": []}
+{"segment_id": "seed_litera_0065_percipiunt", "is_error_stimulus": true, "source": "misgloss", "expected": [{"dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major", "span": "perceive this frenzy"}]}
+{"segment_id": "seed_litera_0065_percipiunt__gold", "is_error_stimulus": false, "source": "misgloss_gold", "expected": []}
+{"segment_id": "seed_litera_0011_impleverat", "is_error_stimulus": true, "source": "misgloss", "expected": [{"dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major", "span": "he had filled"}]}
+{"segment_id": "seed_litera_0011_impleverat__gold", "is_error_stimulus": false, "source": "misgloss_gold", "expected": []}
+{"segment_id": "seed_litera_0058_furor", "is_error_stimulus": true, "source": "misgloss", "expected": [{"dimension": "Terminology", "error_type": "Wrong-term", "severity": "major", "span": "divine rage"}]}
+{"segment_id": "seed_litera_0058_furor__gold", "is_error_stimulus": false, "source": "misgloss_gold", "expected": []}
+{"segment_id": "seed_litera_0006_omission", "is_error_stimulus": true, "source": "misgloss", "expected": [{"dimension": "Accuracy", "error_type": "Omission", "severity": "major", "span": "(missing) this most fortified place of holding the senate"}]}
+{"segment_id": "seed_litera_0006_omission__gold", "is_error_stimulus": false, "source": "misgloss_gold", "expected": []}
+{"segment_id": "seed_litera_0026_demosthenes", "is_error_stimulus": true, "source": "misgloss", "expected": [{"dimension": "Accuracy", "error_type": "Entity", "severity": "major", "span": "the orator"}]}
+{"segment_id": "seed_litera_0026_demosthenes__gold", "is_error_stimulus": false, "source": "misgloss_gold", "expected": []}
+{"segment_id": "seed_litera_0036_fore", "is_error_stimulus": true, "source": "misgloss", "expected": [{"dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor", "span": "there was great danger"}]}
+{"segment_id": "seed_litera_0036_fore__gold", "is_error_stimulus": false, "source": "misgloss_gold", "expected": []}
+{"segment_id": "seed_litera_0060_deity_swap", "is_error_stimulus": true, "source": "misgloss", "expected": [{"dimension": "Accuracy", "error_type": "Entity", "severity": "major", "span": "Apollo over the third; and the Muses over the fourth"}]}
+{"segment_id": "seed_litera_0060_deity_swap__gold", "is_error_stimulus": false, "source": "misgloss_gold", "expected": []}

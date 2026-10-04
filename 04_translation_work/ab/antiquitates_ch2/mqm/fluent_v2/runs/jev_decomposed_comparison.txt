@@ -1,0 +1,205 @@
+################ v1
+v1: legacy JEV vs decomposed (same call) vs Opus/Gemini
+items with every signal: 22 (12 errors, 10 negatives)
+
+signal                          AUC         95% CI   pair-ranking (error worse than its own negative)
+jevlegacy_stored p(has_error)  0.717   0.475-0.917   5/8 (+0 ties)
+jevlegacy_stored -faithfulness  0.750   0.500-0.942   6/8 (+0 ties)
+jev_mqmcall p(has_error)      0.729   0.492-0.925   6/8 (+0 ties)
+jev_mqmcall -faithfulness     0.750   0.508-0.933   5/8 (+0 ties)
+jev_mqmcall p_error_core(max)  0.696   0.458-0.896   6/8 (+0 ties)
+jev_mqmcall p_error_core(noisy_or)  0.700   0.458-0.900   5/8 (+0 ties)
+jev_mqmcall p_error_fine(max)  0.683   0.433-0.892   5/8 (+0 ties)
+jev_mqmcall p_error_fine(noisy_or)  0.708   0.467-0.900   5/8 (+0 ties)
+opus mqm_penalty              0.742   0.533-0.917   4/8 (+2 ties)
+opus -score                   0.750   0.517-0.942   5/8 (+0 ties)
+gemini mqm_penalty            0.833   0.708-0.958   5/8 (+3 ties)
+gemini -score                 0.808   0.642-0.950   5/8 (+3 ties)
+
+paired bootstrap AUC differences (row minus column; 95% CI; * = CI excludes 0)
+  jevlegacy_stored p(has_error) - jevlegacy_stored -faithfulness -0.033  [-0.100, +0.000]  
+  jevlegacy_stored p(has_error) - jev_mqmcall p(has_error)   -0.012  [-0.075, +0.042]  
+  jevlegacy_stored p(has_error) - jev_mqmcall -faithfulness  -0.033  [-0.100, +0.000]  
+  jevlegacy_stored p(has_error) - jev_mqmcall p_error_core(max) +0.021  [-0.096, +0.133]  
+  jevlegacy_stored p(has_error) - jev_mqmcall p_error_core(noisy_or) +0.017  [-0.092, +0.125]  
+  jevlegacy_stored p(has_error) - jev_mqmcall p_error_fine(max) +0.033  [-0.142, +0.200]  
+  jevlegacy_stored p(has_error) - jev_mqmcall p_error_fine(noisy_or) +0.008  [-0.100, +0.133]  
+  jevlegacy_stored p(has_error) - opus mqm_penalty           -0.025  [-0.200, +0.150]  
+  jevlegacy_stored p(has_error) - opus -score                -0.033  [-0.167, +0.079]  
+  jevlegacy_stored p(has_error) - gemini mqm_penalty         -0.117  [-0.292, +0.050]  
+  jevlegacy_stored p(has_error) - gemini -score              -0.092  [-0.275, +0.071]  
+  jevlegacy_stored -faithfulness - jev_mqmcall p(has_error)   +0.021  [-0.017, +0.092]  
+  jevlegacy_stored -faithfulness - jev_mqmcall -faithfulness  +0.000  [-0.058, +0.067]  
+  jevlegacy_stored -faithfulness - jev_mqmcall p_error_core(max) +0.054  [-0.075, +0.183]  
+  jevlegacy_stored -faithfulness - jev_mqmcall p_error_core(noisy_or) +0.050  [-0.050, +0.158]  
+  jevlegacy_stored -faithfulness - jev_mqmcall p_error_fine(max) +0.067  [-0.092, +0.217]  
+  jevlegacy_stored -faithfulness - jev_mqmcall p_error_fine(noisy_or) +0.042  [-0.075, +0.183]  
+  jevlegacy_stored -faithfulness - opus mqm_penalty           +0.008  [-0.167, +0.192]  
+  jevlegacy_stored -faithfulness - opus -score                +0.000  [-0.129, +0.121]  
+  jevlegacy_stored -faithfulness - gemini mqm_penalty         -0.083  [-0.250, +0.075]  
+  jevlegacy_stored -faithfulness - gemini -score              -0.058  [-0.225, +0.108]  
+  jev_mqmcall p(has_error)   - jev_mqmcall -faithfulness  -0.021  [-0.092, +0.042]  
+  jev_mqmcall p(has_error)   - jev_mqmcall p_error_core(max) +0.033  [-0.075, +0.138]  
+  jev_mqmcall p(has_error)   - jev_mqmcall p_error_core(noisy_or) +0.029  [-0.058, +0.125]  
+  jev_mqmcall p(has_error)   - jev_mqmcall p_error_fine(max) +0.046  [-0.108, +0.200]  
+  jev_mqmcall p(has_error)   - jev_mqmcall p_error_fine(noisy_or) +0.021  [-0.071, +0.125]  
+  jev_mqmcall p(has_error)   - opus mqm_penalty           -0.013  [-0.196, +0.167]  
+  jev_mqmcall p(has_error)   - opus -score                -0.021  [-0.162, +0.104]  
+  jev_mqmcall p(has_error)   - gemini mqm_penalty         -0.104  [-0.283, +0.067]  
+  jev_mqmcall p(has_error)   - gemini -score              -0.079  [-0.254, +0.088]  
+  jev_mqmcall -faithfulness  - jev_mqmcall p_error_core(max) +0.054  [-0.050, +0.167]  
+  jev_mqmcall -faithfulness  - jev_mqmcall p_error_core(noisy_or) +0.050  [-0.025, +0.150]  
+  jev_mqmcall -faithfulness  - jev_mqmcall p_error_fine(max) +0.067  [-0.075, +0.217]  
+  jev_mqmcall -faithfulness  - jev_mqmcall p_error_fine(noisy_or) +0.042  [-0.042, +0.158]  
+  jev_mqmcall -faithfulness  - opus mqm_penalty           +0.008  [-0.154, +0.167]  
+  jev_mqmcall -faithfulness  - opus -score                +0.000  [-0.125, +0.108]  
+  jev_mqmcall -faithfulness  - gemini mqm_penalty         -0.083  [-0.242, +0.058]  
+  jev_mqmcall -faithfulness  - gemini -score              -0.058  [-0.217, +0.083]  
+  jev_mqmcall p_error_core(max) - jev_mqmcall p_error_core(noisy_or) -0.004  [-0.079, +0.075]  
+  jev_mqmcall p_error_core(max) - jev_mqmcall p_error_fine(max) +0.012  [-0.117, +0.133]  
+  jev_mqmcall p_error_core(max) - jev_mqmcall p_error_fine(noisy_or) -0.013  [-0.100, +0.083]  
+  jev_mqmcall p_error_core(max) - opus mqm_penalty           -0.046  [-0.229, +0.133]  
+  jev_mqmcall p_error_core(max) - opus -score                -0.054  [-0.212, +0.108]  
+  jev_mqmcall p_error_core(max) - gemini mqm_penalty         -0.138  [-0.325, +0.033]  
+  jev_mqmcall p_error_core(max) - gemini -score              -0.113  [-0.292, +0.054]  
+  jev_mqmcall p_error_core(noisy_or) - jev_mqmcall p_error_fine(max) +0.017  [-0.108, +0.125]  
+  jev_mqmcall p_error_core(noisy_or) - jev_mqmcall p_error_fine(noisy_or) -0.008  [-0.083, +0.075]  
+  jev_mqmcall p_error_core(noisy_or) - opus mqm_penalty           -0.042  [-0.233, +0.125]  
+  jev_mqmcall p_error_core(noisy_or) - opus -score                -0.050  [-0.213, +0.088]  
+  jev_mqmcall p_error_core(noisy_or) - gemini mqm_penalty         -0.133  [-0.317, +0.025]  
+  jev_mqmcall p_error_core(noisy_or) - gemini -score              -0.108  [-0.283, +0.042]  
+  jev_mqmcall p_error_fine(max) - jev_mqmcall p_error_fine(noisy_or) -0.025  [-0.150, +0.117]  
+  jev_mqmcall p_error_fine(max) - opus mqm_penalty           -0.058  [-0.254, +0.133]  
+  jev_mqmcall p_error_fine(max) - opus -score                -0.067  [-0.258, +0.129]  
+  jev_mqmcall p_error_fine(max) - gemini mqm_penalty         -0.150  [-0.358, +0.033]  
+  jev_mqmcall p_error_fine(max) - gemini -score              -0.125  [-0.317, +0.042]  
+  jev_mqmcall p_error_fine(noisy_or) - opus mqm_penalty           -0.033  [-0.213, +0.121]  
+  jev_mqmcall p_error_fine(noisy_or) - opus -score                -0.042  [-0.217, +0.117]  
+  jev_mqmcall p_error_fine(noisy_or) - gemini mqm_penalty         -0.125  [-0.333, +0.058]  
+  jev_mqmcall p_error_fine(noisy_or) - gemini -score              -0.100  [-0.300, +0.075]  
+KEY: 22 stimuli = 12 errors + 10 hard negatives
+
+judge        det.recall  typed.recall   FP rate   n/a
+------------------------------------------------------
+jev                8/12           n/a      2/10     0
+jevcore            7/12          6/12      3/10     0
+jevfine            7/12          5/12      3/10     0
+opus               8/12          8/12      4/10     0
+gemini             8/12          7/12      0/10     0
+################ v2
+v2: legacy JEV vs decomposed (same call) vs Opus/Gemini
+items with every signal: 144 (66 errors, 78 negatives)
+
+signal                          AUC         95% CI   pair-ranking (error worse than its own negative)
+jevlegacy_stored p(has_error)  0.945   0.909-0.973   63/66 (+0 ties)
+jevlegacy_stored -faithfulness  0.933   0.891-0.965   63/66 (+0 ties)
+jev_mqmcall p(has_error)      0.941   0.903-0.971   63/66 (+0 ties)
+jev_mqmcall -faithfulness     0.940   0.901-0.970   63/66 (+0 ties)
+jev_mqmcall p_error_core(max)  0.924   0.880-0.960   63/66 (+0 ties)
+jev_mqmcall p_error_core(noisy_or)  0.933   0.891-0.965   63/66 (+0 ties)
+jev_mqmcall p_error_fine(max)  0.903   0.849-0.946   62/66 (+1 ties)
+jev_mqmcall p_error_fine(noisy_or)  0.931   0.888-0.967   63/66 (+0 ties)
+opus mqm_penalty              0.998   0.992-1.000   65/66 (+1 ties)
+opus -score                   1.000   0.999-1.000   66/66 (+0 ties)
+gemini mqm_penalty            0.987   0.971-0.999   64/66 (+1 ties)
+gemini -score                 0.981   0.960-0.997   65/66 (+1 ties)
+
+paired bootstrap AUC differences (row minus column; 95% CI; * = CI excludes 0)
+  jevlegacy_stored p(has_error) - jevlegacy_stored -faithfulness +0.012  [-0.002, +0.026]  
+  jevlegacy_stored p(has_error) - jev_mqmcall p(has_error)   +0.004  [-0.003, +0.012]  
+  jevlegacy_stored p(has_error) - jev_mqmcall -faithfulness  +0.005  [-0.009, +0.019]  
+  jevlegacy_stored p(has_error) - jev_mqmcall p_error_core(max) +0.021  [-0.001, +0.045]  
+  jevlegacy_stored p(has_error) - jev_mqmcall p_error_core(noisy_or) +0.012  [-0.009, +0.035]  
+  jevlegacy_stored p(has_error) - jev_mqmcall p_error_fine(max) +0.042  [+0.009, +0.081] *
+  jevlegacy_stored p(has_error) - jev_mqmcall p_error_fine(noisy_or) +0.014  [-0.010, +0.039]  
+  jevlegacy_stored p(has_error) - opus mqm_penalty           -0.053  [-0.089, -0.024] *
+  jevlegacy_stored p(has_error) - opus -score                -0.055  [-0.091, -0.027] *
+  jevlegacy_stored p(has_error) - gemini mqm_penalty         -0.043  [-0.079, -0.012] *
+  jevlegacy_stored p(has_error) - gemini -score              -0.036  [-0.075, -0.002] *
+  jevlegacy_stored -faithfulness - jev_mqmcall p(has_error)   -0.008  [-0.022, +0.006]  
+  jevlegacy_stored -faithfulness - jev_mqmcall -faithfulness  -0.007  [-0.018, +0.003]  
+  jevlegacy_stored -faithfulness - jev_mqmcall p_error_core(max) +0.008  [-0.015, +0.034]  
+  jevlegacy_stored -faithfulness - jev_mqmcall p_error_core(noisy_or) -0.000  [-0.025, +0.025]  
+  jevlegacy_stored -faithfulness - jev_mqmcall p_error_fine(max) +0.030  [-0.004, +0.070]  
+  jevlegacy_stored -faithfulness - jev_mqmcall p_error_fine(noisy_or) +0.001  [-0.023, +0.027]  
+  jevlegacy_stored -faithfulness - opus mqm_penalty           -0.065  [-0.106, -0.031] *
+  jevlegacy_stored -faithfulness - opus -score                -0.067  [-0.108, -0.035] *
+  jevlegacy_stored -faithfulness - gemini mqm_penalty         -0.055  [-0.098, -0.021] *
+  jevlegacy_stored -faithfulness - gemini -score              -0.049  [-0.093, -0.010] *
+  jev_mqmcall p(has_error)   - jev_mqmcall -faithfulness  +0.001  [-0.012, +0.014]  
+  jev_mqmcall p(has_error)   - jev_mqmcall p_error_core(max) +0.016  [-0.003, +0.039]  
+  jev_mqmcall p(has_error)   - jev_mqmcall p_error_core(noisy_or) +0.008  [-0.012, +0.029]  
+  jev_mqmcall p(has_error)   - jev_mqmcall p_error_fine(max) +0.038  [+0.005, +0.075] *
+  jev_mqmcall p(has_error)   - jev_mqmcall p_error_fine(noisy_or) +0.009  [-0.012, +0.031]  
+  jev_mqmcall p(has_error)   - opus mqm_penalty           -0.057  [-0.095, -0.027] *
+  jev_mqmcall p(has_error)   - opus -score                -0.059  [-0.097, -0.029] *
+  jev_mqmcall p(has_error)   - gemini mqm_penalty         -0.047  [-0.085, -0.015] *
+  jev_mqmcall p(has_error)   - gemini -score              -0.041  [-0.081, -0.005] *
+  jev_mqmcall -faithfulness  - jev_mqmcall p_error_core(max) +0.015  [-0.008, +0.041]  
+  jev_mqmcall -faithfulness  - jev_mqmcall p_error_core(noisy_or) +0.007  [-0.018, +0.032]  
+  jev_mqmcall -faithfulness  - jev_mqmcall p_error_fine(max) +0.037  [+0.003, +0.077] *
+  jev_mqmcall -faithfulness  - jev_mqmcall p_error_fine(noisy_or) +0.008  [-0.017, +0.034]  
+  jev_mqmcall -faithfulness  - opus mqm_penalty           -0.058  [-0.098, -0.026] *
+  jev_mqmcall -faithfulness  - opus -score                -0.060  [-0.099, -0.029] *
+  jev_mqmcall -faithfulness  - gemini mqm_penalty         -0.048  [-0.087, -0.015] *
+  jev_mqmcall -faithfulness  - gemini -score              -0.041  [-0.082, -0.004] *
+  jev_mqmcall p_error_core(max) - jev_mqmcall p_error_core(noisy_or) -0.009  [-0.023, +0.005]  
+  jev_mqmcall p_error_core(max) - jev_mqmcall p_error_fine(max) +0.022  [+0.000, +0.047]  
+  jev_mqmcall p_error_core(max) - jev_mqmcall p_error_fine(noisy_or) -0.007  [-0.027, +0.012]  
+  jev_mqmcall p_error_core(max) - opus mqm_penalty           -0.074  [-0.118, -0.038] *
+  jev_mqmcall p_error_core(max) - opus -score                -0.076  [-0.120, -0.040] *
+  jev_mqmcall p_error_core(max) - gemini mqm_penalty         -0.063  [-0.108, -0.024] *
+  jev_mqmcall p_error_core(max) - gemini -score              -0.057  [-0.104, -0.014] *
+  jev_mqmcall p_error_core(noisy_or) - jev_mqmcall p_error_fine(max) +0.030  [+0.008, +0.056] *
+  jev_mqmcall p_error_core(noisy_or) - jev_mqmcall p_error_fine(noisy_or) +0.002  [-0.015, +0.018]  
+  jev_mqmcall p_error_core(noisy_or) - opus mqm_penalty           -0.065  [-0.107, -0.031] *
+  jev_mqmcall p_error_core(noisy_or) - opus -score                -0.067  [-0.109, -0.035] *
+  jev_mqmcall p_error_core(noisy_or) - gemini mqm_penalty         -0.054  [-0.096, -0.019] *
+  jev_mqmcall p_error_core(noisy_or) - gemini -score              -0.048  [-0.093, -0.009] *
+  jev_mqmcall p_error_fine(max) - jev_mqmcall p_error_fine(noisy_or) -0.029  [-0.056, -0.007] *
+  jev_mqmcall p_error_fine(max) - opus mqm_penalty           -0.095  [-0.149, -0.051] *
+  jev_mqmcall p_error_fine(max) - opus -score                -0.097  [-0.151, -0.054] *
+  jev_mqmcall p_error_fine(max) - gemini mqm_penalty         -0.085  [-0.138, -0.039] *
+  jev_mqmcall p_error_fine(max) - gemini -score              -0.079  [-0.134, -0.029] *
+  jev_mqmcall p_error_fine(noisy_or) - opus mqm_penalty           -0.066  [-0.110, -0.030] *
+  jev_mqmcall p_error_fine(noisy_or) - opus -score                -0.068  [-0.112, -0.033] *
+  jev_mqmcall p_error_fine(noisy_or) - gemini mqm_penalty         -0.056  [-0.100, -0.017] *
+  jev_mqmcall p_error_fine(noisy_or) - gemini -score              -0.050  [-0.096, -0.008] *
+KEY: 144 stimuli = 66 errors + 78 hard negatives
+
+judge        det.recall  typed.recall   FP rate   n/a
+------------------------------------------------------
+jev               60/66           n/a     18/78     0
+jevcore           57/66         57/66     18/78     0
+jevfine           61/66         61/66     26/78     0
+opus              66/66         66/66     51/78     0
+gemini            66/66         66/66     24/78     0
+
+################ extra checks
+
+== v1: ERROR-TYPE match (keyed error_type among the nouls >=0.5), by keyed type
+  core: Entity 3/3, Mistranslation 2/6, Omission 1/1, Wrong-term 0/2
+  fine: Entity 3/3, Mistranslation 0/6, Omission 1/1, Wrong-term 0/2
+  severity_v2 option-order check: fwd==rev on 19/22 items; fwd dist {'none': 15, 'substantially': 4, 'slightly': 2, 'completely': 1}; rev dist {'none': 14, 'substantially': 7, 'completely': 1}
+  mean P('none'): listed first 0.532 vs listed last 0.521
+
+== v2: ERROR-TYPE match (keyed error_type among the nouls >=0.5), by keyed type
+  core: Entity 9/10, Grammar 1/1, Mistranslation 42/53, Omission 3/3
+  fine: Entity 10/10, Grammar 1/1, Mistranslation 36/53, Omission 3/3
+  severity_v2 option-order check: fwd==rev on 129/144 items; fwd dist {'none': 77, 'substantially': 35, 'slightly': 15, 'completely': 17}; rev dist {'none': 75, 'substantially': 45, 'slightly': 9, 'completely': 15}
+  mean P('none'): listed first 0.420 vs listed last 0.401
+=== v2 has_error — all: n=144 (66 errors, 78 negatives; base rate 0.46)
+  mean p(has_error): errors 0.769  vs  negatives 0.307
+  Brier 0.112  vs base-rate forecaster 0.248  -> skill +0.548 (0 = no better than base rate)
+  reliability (p bin: n, mean p, observed error rate):
+    [0.0-0.1) n=  4  mean p=0.09  observed=0.00  ####
+=== v2 p_error_core — all: n=144 (66 errors, 78 negatives; base rate 0.46)
+  mean p(has_error): errors 0.759  vs  negatives 0.363
+  Brier 0.130  vs base-rate forecaster 0.248  -> skill +0.478 (0 = no better than base rate)
+  reliability (p bin: n, mean p, observed error rate):
+    [0.1-0.2) n=  7  mean p=0.18  observed=0.00  #######
+=== v2 p_error_fine — all: n=144 (66 errors, 78 negatives; base rate 0.46)
+  mean p(has_error): errors 0.752  vs  negatives 0.445
+  Brier 0.160  vs base-rate forecaster 0.248  -> skill +0.356 (0 = no better than base rate)
+  reliability (p bin: n, mean p, observed error rate):
+    [0.1-0.2) n=  1  mean p=0.18  observed=0.00  #

@@ -1,0 +1,107 @@
+{"segment_id": "H-01", "is_error_stimulus": true, "source": "real-model-output", "expected": [{"span": "each granted them one portion of land", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "H-01__neg", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "H-02", "is_error_stimulus": true, "source": "real-model-output", "expected": [{"span": "to Joseph and his companions, and left the rights to them", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "H-02__neg", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "H-03", "is_error_stimulus": true, "source": "real-model-output", "expected": [{"span": "walled up in a tomb", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "H-03__neg", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "H-04", "is_error_stimulus": true, "source": "real-model-output", "expected": [{"span": "and miraculously delivered by God Most Good and Most Great, was thereafter nowhere seen", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "H-04__neg", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "H-05", "is_error_stimulus": true, "source": "real-model-output", "expected": [{"span": "still", "dimension": "Accuracy", "error_type": "Addition", "severity": "minor"}]}
+{"segment_id": "H-05__neg", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "H-06", "is_error_stimulus": true, "source": "real-model-output", "expected": [{"span": "a plausible newcomer", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "H-06__neg", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "H-07", "is_error_stimulus": true, "source": "real-model-output", "expected": [{"span": "while the blessed apostle John was laboring", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "H-07__neg", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "H-08", "is_error_stimulus": true, "source": "real-model-output", "expected": [{"span": "That those three kings — Arviragus, Marius, and Coilus — were pagans", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "H-08__neg", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "H-09", "is_error_stimulus": true, "source": "real-model-output", "expected": [{"span": "whom our Foxe cites", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "H-09__neg", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "H-10", "is_error_stimulus": true, "source": "real-model-output", "expected": [{"span": "grown old to her husband", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "H-10__neg", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "H-11", "is_error_stimulus": true, "source": "real-model-output", "expected": [{"span": "he who was hallowed", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "H-11__neg", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "H-12", "is_error_stimulus": true, "source": "real-model-output", "expected": [{"span": "nativity of the apostles", "dimension": "Terminology", "error_type": "Wrong-term", "severity": "minor"}]}
+{"segment_id": "H-12__neg", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "H-13", "is_error_stimulus": true, "source": "real-model-output", "expected": [{"span": "his eulogy", "dimension": "Terminology", "error_type": "Wrong-term", "severity": "minor"}]}
+{"segment_id": "H-13__neg", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "S-01", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "each gave", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-01__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-02", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "by the Spaniards, the Scots, and the French against the English", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-02__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-03", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "denies the assertion", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-03__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-04", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "the prison of Pilate", "dimension": "Accuracy", "error_type": "Entity", "severity": "major"}]}
+{"segment_id": "S-04__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-05", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "from the hands of the dead Christ", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-05__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-06", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "in order to receive", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-06__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-07", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "because without any obstacle, at the very beginnings of the Gospel, its word ran everywhere", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-07__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-08", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "although", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-08__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-09", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "is known to have died", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "S-09__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-10", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "reliably", "dimension": "Accuracy", "error_type": "Addition", "severity": "minor"}]}
+{"segment_id": "S-10__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-11", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "various examples", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "S-11__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-12", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "the Toledan council", "dimension": "Terminology", "error_type": "Wrong-term", "severity": "minor"}]}
+{"segment_id": "S-12__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-13", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "a preface by Henry of Blois", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-13__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-14", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "released under Nero", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "S-14__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-15", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "for the holy apostles", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-15__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-16", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "citing Malmesbury", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-16__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-17", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "in whose time Christ Jesus was born of the Virgin Mary, son of Kimbelinus king of the Britons", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-17__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-18", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "epistle of Timothy", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-18__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-19", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "which had been brought to him", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "S-19__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-20", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "without damage from our beloved in Christ", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-20__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-21", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "after the Kalends of August", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-21__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-22", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "Missal", "dimension": "Terminology", "error_type": "Wrong-term", "severity": "minor"}]}
+{"segment_id": "S-22__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-23", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "Peter suffered martyrdom while James was still alive", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-23__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-24", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "there Peter preached", "dimension": "Accuracy", "error_type": "Entity", "severity": "major"}]}
+{"segment_id": "S-24__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-25", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "greet Paul", "dimension": "Accuracy", "error_type": "Entity", "severity": "major"}]}
+{"segment_id": "S-25__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-26", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "Linus was the father of a certain Herculanus", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-26__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-27", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "not long before the passion", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-27__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-28", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "after the Lord went to his passion, became", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "S-28__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-29", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "spent twenty-three years in the East, but passed twelve years at Rome", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-29__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-30", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "by all of the apostles", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-30__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-31", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "not all of the monks knew", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-31__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-32", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "because", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor"}]}
+{"segment_id": "S-32__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-33", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "I have abused both my own leisure and the reader's patience in rehearsing", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-33__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "S-34", "is_error_stimulus": true, "source": "simulated (claude-opus-5.5) on real base", "expected": [{"span": "since Joseph had been in England, this was", "dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major"}]}
+{"segment_id": "S-34__neg", "is_error_stimulus": false, "source": "simulated (claude-opus-5.5) on real base", "expected": []}
+{"segment_id": "B-01", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "B-02", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "B-03", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "B-04", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "B-05", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "B-06", "is_error_stimulus": false, "source": "real-model-output", "expected": []}
+{"segment_id": "V1-p0033_s0002_opus__them_him", "is_error_stimulus": true, "source": "real-model-output (v1 seed)", "expected": [{"dimension": "Accuracy", "error_type": "Mistranslation", "severity": "major", "span": "them from him"}]}
+{"segment_id": "V1-p0043_s0009_opus__illo_pudens", "is_error_stimulus": true, "source": "real-model-output (v1 seed)", "expected": [{"dimension": "Accuracy", "error_type": "Entity", "severity": "major", "span": "as Pudens"}]}
+{"segment_id": "V1-p0043_s0009_gemini__cum_when", "is_error_stimulus": true, "source": "real-model-output (v1 seed)", "expected": [{"dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor", "span": "when he (Plutarch) makes mention"}]}
+{"segment_id": "V1-p0039_l0002_v2__in_to", "is_error_stimulus": true, "source": "real-model-output (v1 seed)", "expected": [{"dimension": "Accuracy", "error_type": "Mistranslation", "severity": "minor", "span": "in the western regions"}]}
+{"segment_id": "V1-p0033_s0001_opus__sonant", "is_error_stimulus": false, "source": "real-model-output (v1 seed)", "expected": []}
+{"segment_id": "V1-p0039_l0002_v0__to_western", "is_error_stimulus": false, "source": "real-model-output (v1 seed)", "expected": []}
+{"segment_id": "V1-p0033_s0002__neg_gemini", "is_error_stimulus": false, "source": "real-model-output", "expected": []}

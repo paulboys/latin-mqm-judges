@@ -1,0 +1,29 @@
+{
+  "label": "opus-on-v2",
+  "judge_provider": "anthropic",
+  "judge_model": "claude-opus-4-8",
+  "segments_file": "..\\..\\04_translation_work\\ab\\antiquitates_ch2\\mqm\\fluent_v2\\runs\\v2_input.jsonl",
+  "units_scored": 144,
+  "mean_score_0_100": 75.35,
+  "total_issues": 174,
+  "mqm_penalty_per_100_src_tokens": 38.362,
+  "by_severity": {
+    "major": 53,
+    "critical": 21,
+    "minor": 100
+  },
+  "by_dimension": {
+    "Accuracy": 145,
+    "Terminology": 7,
+    "Style": 17,
+    "Fluency": 5
+  },
+  "classification_distribution": {
+    "4-unreliable": 54,
+    "9-excellent": 32,
+    "8-very good": 42,
+    "6-understandable but flawed": 9,
+    "2-severe distortion": 2,
+    "7-good": 5
+  }
+}

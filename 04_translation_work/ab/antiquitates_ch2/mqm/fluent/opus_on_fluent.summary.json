@@ -1,0 +1,24 @@
+{
+  "label": "opus-on-fluent",
+  "judge_provider": "anthropic",
+  "judge_model": "claude-opus-4-8",
+  "segments_file": "04_translation_work\\ab\\antiquitates_ch2\\mqm\\fluent\\fluent_set_input.jsonl",
+  "units_scored": 22,
+  "mean_score_0_100": 85.27,
+  "total_issues": 16,
+  "mqm_penalty_per_100_src_tokens": 13.095,
+  "by_severity": {
+    "major": 7,
+    "minor": 9
+  },
+  "by_dimension": {
+    "Accuracy": 15,
+    "Terminology": 1
+  },
+  "classification_distribution": {
+    "4-unreliable": 3,
+    "9-excellent": 7,
+    "6-understandable but flawed": 3,
+    "8-very good": 9
+  }
+}

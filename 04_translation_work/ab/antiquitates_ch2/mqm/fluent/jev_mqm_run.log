@@ -1,0 +1,24 @@
+[1/22] seed_p0033_s0002_opus__them_him: has_error=0.23 sev=none faith=3.43 core=0.28 fine=0.47 sev2=none
+[2/22] seed_p0033_s0001_opus__sonant: has_error=0.11 sev=none faith=3.65 core=0.33 fine=0.46 sev2=none
+[3/22] seed_p0043_s0009_opus__illo_pudens: has_error=0.85 sev=critical faith=2.21 core=0.89 fine=0.92 sev2=substantially
+[4/22] seed_p0043_s0009_gemini__cum_when: has_error=0.64 sev=major faith=2.66 core=0.53 fine=0.65 sev2=none
+[5/22] seed_p0039_l0002_v2__in_to: has_error=0.08 sev=none faith=3.91 core=0.12 fine=0.16 sev2=none
+[6/22] seed_p0039_l0002_v0__to_western: has_error=0.16 sev=none faith=3.81 core=0.16 fine=0.2 sev2=none
+[7/22] seed_litera_0055_studium: has_error=0.43 sev=none faith=3.32 core=0.35 fine=0.57 sev2=none
+[8/22] seed_litera_0055_studium__gold: has_error=0.42 sev=none faith=3.31 core=0.37 fine=0.49 sev2=none
+[9/22] seed_litera_0065_percipiunt: has_error=0.27 sev=none faith=3.58 core=0.26 fine=0.35 sev2=none
+[10/22] seed_litera_0065_percipiunt__gold: has_error=0.54 sev=major faith=3.09 core=0.59 fine=0.54 sev2=substantially
+[11/22] seed_litera_0011_impleverat: has_error=0.66 sev=major faith=2.85 core=0.56 fine=0.47 sev2=substantially
+[12/22] seed_litera_0011_impleverat__gold: has_error=0.61 sev=major faith=2.96 core=0.51 fine=0.48 sev2=substantially
+[13/22] seed_litera_0058_furor: has_error=0.42 sev=major faith=3.08 core=0.51 fine=0.55 sev2=none
+[14/22] seed_litera_0058_furor__gold: has_error=0.19 sev=none faith=3.69 core=0.26 fine=0.53 sev2=none
+[15/22] seed_litera_0006_omission: has_error=0.61 sev=major faith=2.85 core=0.78 fine=0.79 sev2=slightly
+[16/22] seed_litera_0006_omission__gold: has_error=0.43 sev=none faith=3.29 core=0.58 fine=0.67 sev2=none
+[17/22] seed_litera_0026_demosthenes: has_error=0.94 sev=major faith=2.37 core=0.95 fine=0.81 sev2=substantially
+[18/22] seed_litera_0026_demosthenes__gold: has_error=0.05 sev=none faith=3.94 core=0.12 fine=0.17 sev2=none
+[19/22] seed_litera_0036_fore: has_error=0.09 sev=none faith=3.87 core=0.24 fine=0.39 sev2=none
+[20/22] seed_litera_0036_fore__gold: has_error=0.1 sev=none faith=3.81 core=0.23 fine=0.41 sev2=none
+[21/22] seed_litera_0060_deity_swap: has_error=0.91 sev=critical faith=2.23 core=0.81 fine=0.87 sev2=completely
+[22/22] seed_litera_0060_deity_swap__gold: has_error=0.1 sev=none faith=3.88 core=0.23 fine=0.38 sev2=none
+
+wrote ..\..\04_translation_work\ab\antiquitates_ch2\mqm\fluent\jev_mqm_on_fluent.jsonl
